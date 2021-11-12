@@ -145,14 +145,35 @@ class Panel_admin extends CI_Controller {
 			redirect('panel_admin/log_in');
 		}else{
 			$data['user']  			  = $this->db->get('tbl_user', "username='$ceks'");
-			$data['judul_web'] 		= "Jurusan";
-
-			$this->db->order_by('id_jurusan', 'DESC');
-			$data['v_jurusan']  		= $this->db->get('tbl_jurusan');
+			$data['judul_web'] 		= "Tambah Jurusan";
 
 					$this->load->view('admin/header', $data);
-					$this->load->view('admin/jurusan/jurusan', $data);
+					$this->load->view('admin/jurusan/tambah_jurusan');
 					$this->load->view('admin/footer');
+
+					if (isset($_POST['btnupdate2'])) {
+						$nama_jurusan 	= $this->input->post('nama_jurusan');
+						$kuota 	= $this->input->post('kuota');
+
+						
+									$data = array(
+										'nama_jurusan'	=> $nama_jurusan,
+										'kuota'			=> $kuota
+									);
+									$this->db->insert('tbl_jurusan', $data);
+
+									$this->session->set_flashdata('msg2',
+										'
+										<div class="alert alert-success alert-dismissible" role="alert">
+											 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+											 </button>
+											 <strong>Sukses!</strong> Jurusan berhasil ditambah.
+										</div>'
+									);
+						
+									redirect('panel_admin/jurusan');
+					}
 		}
 	}
 	public function edit_jurusan($id)
@@ -163,30 +184,55 @@ class Panel_admin extends CI_Controller {
 		}else{
 			$data['user']  			  = $this->db->get('tbl_user', "username='$ceks'");
 			$data['judul_web'] 		= "Jurusan";
-
-			$data['v_jurusan']  		= $this->db->get('tbl_jurusan');
+			$id=$this->uri->segment(3);
+			$data['v_jurusan']  		= $this->db->get_where('tbl_jurusan', "id_jurusan= $id ")->row();
 
 					$this->load->view('admin/header', $data);
-					$this->load->view('admin/jurusan/jurusan', $data);
+					$this->load->view('admin/jurusan/edit_jurusan', $data);
 					$this->load->view('admin/footer');
+
+					if (isset($_POST['btnupdate2'])) {
+						$nama_jurusan 	= $this->input->post('nama_jurusan');
+						$kuota 	= $this->input->post('kuota');
+
+						
+									$data = array(
+										'nama_jurusan'	=> $nama_jurusan,
+										'kuota'			=> $kuota
+									);
+									$this->db->update('tbl_jurusan', $data, array('id_jurusan' => $id));
+
+									$this->session->set_flashdata('msg2',
+										'
+										<div class="alert alert-success alert-dismissible" role="alert">
+											 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+											 </button>
+											 <strong>Sukses!</strong> Jurusan berhasil diperbaharui.
+										</div>'
+									);
+						
+									redirect('panel_admin/jurusan');
+								}
 		}
 	}
 	public function hapus_jurusan($id)
 	{
-		$ceks = $this->session->userdata('un@sman1_belitang');
-		if(!isset($ceks)) {
-			redirect('panel_admin/log_in');
-		}else{
-			$data['user']  			  = $this->db->get('tbl_user', "username='$ceks'");
-			$data['judul_web'] 		= "Jurusan";
+		$where = array(
+			'id_jurusan' => $id
+		);
 
-			$this->db->order_by('id_jurusan', 'DESC');
-			$data['v_jurusan']  		= $this->db->get('tbl_jurusan');
-
-					$this->load->view('admin/header', $data);
-					$this->load->view('admin/jurusan/jurusan', $data);
-					$this->load->view('admin/footer');
-		}
+		$this->db->delete('tbl_jurusan', $where);
+		$this->session->set_flashdata('msg2',
+		'
+		<div class="alert alert-success alert-dismissible" role="alert">
+			 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+			 </button>
+			 <strong>Sukses!</strong> Jurusan berhasil dihapus.
+		</div>'
+	);
+	redirect('panel_admin/jurusan');
 	}
 
 	public function profile()

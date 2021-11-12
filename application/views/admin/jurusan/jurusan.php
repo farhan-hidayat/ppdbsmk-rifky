@@ -5,6 +5,9 @@
     <?php
     echo $this->session->flashdata('msg');
     ?>
+    <?php
+              echo $this->session->flashdata('msg2');
+              ?>
     <!-- Dashboard content -->
     <div class="row">
       <!-- Basic datatable -->
