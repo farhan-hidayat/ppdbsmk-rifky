@@ -44,24 +44,24 @@ $user = $user->row(); ?>
               <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                   <tr>
-                    <th><button type="submit" name="" class="btn btn-primary">Akte</button></th>
-                    <th><button type="submit" name="" class="btn btn-primary">KK</button></th>
-                    <th><button type="submit" name="" class="btn btn-primary">Foto Keluarga</button></th>
+                    <th>Akte<input type="file" name=""></th>
+                    <th>KK<input type="file" name=""></th>
+                    <th>Foto Keluarga<input type="file" name=""></th>
                   </tr>
                   <tr>
-                    <td><b>Status : <?php echo $user->rayonisasi; ?></b></td>
-                    <td><b>Status : <?php echo $user->rayonisasi; ?></b></td>
-                    <td><b>Status : <?php echo $user->rayonisasi; ?></b></td>
+                    <td><b>Proses</b></td>
+                    <td><b>Terverifikasi</b></td>
+                    <td><b>Proses</b></td>
                   </tr>
                   <tr>
-                    <th><button type="submit" name="" class="btn btn-primary">SKL</button></th>
-                    <th><button type="submit" name="" class="btn btn-primary">Ijazah</button></th>
-                    <th><button type="submit" name="" class="btn btn-primary">Pernyataan</button></th>
+                    <th>SKL<input type="file" name=""></th>
+                    <th>Ijazah<input type="file" name=""></th>
+                    <th>Pernyataan<input type="file" name=""></th>
                   </tr>
                   <tr>
-                    <td><b>Status : <?php echo $user->rayonisasi; ?></b></td>
-                    <td><b>Status : <?php echo $user->rayonisasi; ?></b></td>
-                    <td><b>Status : <?php echo $user->rayonisasi; ?></b></td>
+                    <td><b>Proses</b></td>
+                    <td><b>Proses</b></td>
+                    <td><b>Blm Upload</b></td>
                   </tr>
                 </table>
               </div>
