@@ -137,18 +137,18 @@
   <div class="panel-body">
 
         <div class="form-group" style="padding-bottom:30px;">
-            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Nama Lengkap <span class="text-danger">*</span></label>
+            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Nama Lengkap</label>
             <div class="col-sm-9 prepend-icon">
-              <input type="text" name="nama_wali" class="form-control bg-blue" placeholder="Nama lengkap Wali"  maxlength="100" data-parsley-group="block2" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="error-nama_wali"]' required>
+              <input type="text" name="nama_wali" class="form-control bg-blue" placeholder="Nama lengkap Wali"  maxlength="100" data-parsley-group="block2" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="error-nama_wali"]'>
               <i class="fa fa-user" style="margin-left:15px;"></i>
               <div id="error-nama_wali" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Pendidikan <span class="text-danger">*</span></label>
+            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Pendidikan</span></label>
             <div class="col-sm-9" style="margin-top:3px;">
-              <select class="form-control bg-blue class" data-placeholder="Pilih Pendidikan Wali" name="pdd_wali" data-parsley-group="block2" data-parsley-errors-container='div[id="error-pdd_wali"]' required>
+              <select class="form-control bg-blue class" data-placeholder="Pilih Pendidikan Wali" name="pdd_wali" data-parsley-group="block2" data-parsley-errors-container='div[id="error-pdd_wali"]'>
                   <option value="">Pilih Pendidikan Wali</option>
                   <?php foreach ($v_pdd as $baris): ?>
                     <option value="<?php echo $baris->nama_pdd; ?>"><?php echo $baris->nama_pdd; ?></option>
@@ -159,9 +159,9 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Pekerjaan <span class="text-danger">*</span></label>
+            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Pekerjaan</label>
             <div class="col-sm-9" style="margin-top:3px;">
-              <select class="form-control bg-blue class" data-placeholder="Pilih Pekerjaan Wali" name="pekerjaan_wali" data-parsley-group="block2" data-parsley-errors-container='div[id="error-pekerjaan_wali"]' required>
+              <select class="form-control bg-blue class" data-placeholder="Pilih Pekerjaan Wali" name="pekerjaan_wali" data-parsley-group="block2" data-parsley-errors-container='div[id="error-pekerjaan_wali"]'>
                   <option value="">Pilih Pekerjaan Wali</option>
                   <?php foreach ($v_pekerjaan_wali as $baris): ?>
                     <option value="<?php echo $baris->nama_pekerjaan; ?>"><?php echo $baris->nama_pekerjaan; ?></option>
@@ -172,9 +172,9 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Penghasilan <span class="text-danger">*</span></label>
+            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Penghasilan</label>
             <div class="col-sm-9" style="margin-top:3px;">
-              <select class="form-control bg-blue class" data-placeholder="Pilih Penghasilan Wali" name="penghasilan_wali" data-parsley-group="block2" data-parsley-errors-container='div[id="error-penghasilan_wali"]' required>
+              <select class="form-control bg-blue class" data-placeholder="Pilih Penghasilan Wali" name="penghasilan_wali" data-parsley-group="block2" data-parsley-errors-container='div[id="error-penghasilan_wali"]'>
                   <option value="">Pilih Penghasilan Wali</option>
                   <?php foreach ($v_penghasilan as $baris): ?>
                     <option value="<?php echo $baris->nama_penghasilan; ?>"><?php echo $baris->nama_penghasilan; ?></option>
@@ -185,9 +185,9 @@
         </div>
 
         <div class="form-group" >
-            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">No. Handphone <span class="text-danger">*</span></label>
+            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">No. Handphone</label>
             <div class="col-sm-9 prepend-icon" style="margin-top:3px;">
-              <input type="text" name="no_hp_wali" class="form-control bg-blue class" onkeypress="return hanyaAngka(this);" maxlength="14" placeholder="No. Handphone Wali" data-parsley-group="block2" data-parsley-errors-container='div[id="error-no_hp_wali"]' required>
+              <input type="text" name="no_hp_wali" class="form-control bg-blue class" onkeypress="return hanyaAngka(this);" maxlength="14" placeholder="No. Handphone Wali" data-parsley-group="block2" data-parsley-errors-container='div[id="error-no_hp_wali"]'>
               <i class="fa fa-phone" style="margin-left:15px;"></i>
               <div id="error-no_hp_wali" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
             </div>

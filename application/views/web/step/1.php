@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Kententuan PPDB <strong class="text-success" style="color:#eee;">SMK Plus Al-Maftuh</strong></h2>
-    <span style="font-size:18px;">Unit <b>SMK Plus Al-Maftuh</b> Tahun Ajaran <b><?php echo date('Y'); ?>-<?php echo date('Y')+1; ?></b></span>
+    <h2>Kententuan PPDB <strong class="text-success" style="color:#eee;">SMK Karsa Mulya Palangka Raya</strong></h2>
+    <span style="font-size:18px;">Unit <b>SMK Karsa Mulya Palangka Raya</b> Tahun Ajaran <b><?php echo date('Y'); ?>-<?php echo date('Y')+1; ?></b></span>
     <!-- <hr> -->
   </div>
   <div class="panel-body">
@@ -16,15 +16,15 @@
 
       <li>Siapkan nilai rapor semester I dan II untuk pengisian kolom nilai yang akan dimasukkan dalam form isian nilai rapor pada PPDB Online.</li>
 
-      <li>Calon siswa yang sudah mendaftarkan secara online akan mendapatkan Nomor Pendaftaran yang harus dicetak dan dilampirkan dalam persyaratan yang diminta oleh Panitia PPDB SMK Plus Al-Maftuh.  </li>
+      <li>Calon siswa yang sudah mendaftarkan secara online akan mendapatkan Nomor Pendaftaran yang harus dicetak dan dilampirkan dalam persyaratan yang diminta oleh Panitia PPDB SMK Karsa Mulya Palangka Raya.  </li>
 
-      <li>Calon siswa yang sudah mendaftarkan diri melalui PPDB Online SMK Plus Al-Maftuh akan mendapatkan Nomor Pendaftaran dan Password yang nantinya akan digunakan untuk akses informasi yang berkaitan dengan PPDB SMK Plus Al-Maftuh.</li>
+      <li>Calon siswa yang sudah mendaftarkan diri melalui PPDB Online SMK Karsa Mulya Palangka Raya akan mendapatkan Nomor Pendaftaran dan Password yang nantinya akan digunakan untuk akses informasi yang berkaitan dengan PPDB SMK Karsa Mulya Palangka Raya.</li>
 
-      <li>Calon siswa yang sudah mendaftarakan diri melalui PPDB Online SMK Plus Al-Maftuh wajib menyerahkan dokumen persyaratan yang sudah ditentukan oleh Panitia PPDB SMK Plus Al-Maftuh.</li>
+      <li>Calon siswa yang sudah mendaftarakan diri melalui PPDB Online SMK Karsa Mulya Palangka Raya wajib menyerahkan dokumen persyaratan yang sudah ditentukan oleh Panitia PPDB SMK Karsa Mulya Palangka Raya.</li>
 
-      <li>Setiap calon siswa yang mendaftar wajib mengikuti tes seleksi yang diadakan oleh panitia PPDB SMK Plus Al-Maftuh.</li>
+      <li>Setiap calon siswa yang mendaftar wajib mengikuti tes seleksi yang diadakan oleh panitia PPDB SMK Karsa Mulya Palangka Raya.</li>
 
-      <li>Data yang sudah diberikan oleh Panitia PPDB SMK Plus Al-Maftuh hanya digunakan untuk keperluan penerimaan siswa baru dan <strong class="text-danger">data tidak akan dipublikasikan serta dijaga kerahasiaannya oleh Panita PPDB</strong>.</li>
+      <li>Data yang sudah diberikan oleh Panitia PPDB SMK Karsa Mulya Palangka Raya hanya digunakan untuk keperluan penerimaan siswa baru dan <strong class="text-danger">data tidak akan dipublikasikan serta dijaga kerahasiaannya oleh Panita PPDB</strong>.</li>
 
     </ol>
 

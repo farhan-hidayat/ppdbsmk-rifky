@@ -7,7 +7,7 @@
     <meta name="author" content="themes-lab">
 		<base href="<?php echo base_url();?>"/>
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
-    <title>PPDB SMK PLUS AL-MAFTUH</title>
+    <title>PPDB SMK Karsa Mulya Palangka Raya</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
     <link href="assets/kitkat/assets/css/style.css" rel="stylesheet">
     <link href="assets/kitkat/assets/css/theme.css" rel="stylesheet">
@@ -87,7 +87,7 @@
         <div class="page-content page-wizard">
 
           <div class="header" style="margin-top:-20px;">
-            <h2>Form Pendaftaran PPDB Online <strong> SMK Plus Al-Maftuh</strong></h2>
+            <h2>Form Pendaftaran PPDB Online <strong> SMK Karsa Mulya Palangka Raya</strong></h2>
             <hr style="margin-top:5px;">
 
           </div>
@@ -156,18 +156,8 @@
                               </div>
                             </div>
                         </fieldset>
-
-                        <fieldset>
-                            <legend>Rayon</legend>
-                            <div class="row">
-                              <div class="col-md-2"></div>
-                              <div class="col-md-8">
-                                <?php $this->load->view('web/step/5'); ?>
-                              </div>
-                            </div>
-                        </fieldset>
-
-                        <fieldset>
+                        
+                        <!-- <fieldset>
                             <legend>Nilai</legend>
                             <div class="row">
                               <div class="col-md-2"></div>
@@ -175,7 +165,7 @@
                                 <?php $this->load->view('web/step/6'); ?>
                               </div>
                             </div>
-                        </fieldset>
+                        </fieldset> -->
 
                         <fieldset>
                            <legend>Konfirmasi</legend>
@@ -186,7 +176,7 @@
                               <div class="col-md-6 panel p-20" style="text-align:center">
                               <i class="fa fa-info-circle faa-flash animated c-blue" style="font-size:97px"></i><br><br>
                               <span style="font-size:15px">
-                                 Proses PPDB Online SMK Plus Al-Maftuh hampir selesai. Silakan periksa kembali data-data calon siswa yang sudah anda masukkan.
+                                 Proses PPDB Online SMK Karsa Mulya Palangka Raya hampir selesai. Silakan periksa kembali data-data calon siswa yang sudah anda masukkan.
                                  <br><br>
                                  <div class="col-md-12" >
                                        <span class="text-primary" style="font-size:18px;"><strong>Apakah data calon siswa sudah sesuai dan lengkap?</strong></span>
@@ -217,7 +207,7 @@
           <div class="footer">
             <div class="copyright">
               <p class="pull-left sm-pull-reset">
-                <span>Copyright &copy; <a href="http://www.sman1belitang.sch.id" target="_blank">SMK Plus Al-Maftuh</a> <?php echo date('Y'); ?> | IT Development</span>
+                <span>Copyright &copy; <a href="http://www.sman1belitang.sch.id" target="_blank">SMK Karsa Mulya Palangka Raya</a> <?php echo date('Y'); ?> | IT Development</span>
               </p>
               <p class="pull-right sm-pull-reset">
                 <span><a href="" class="m-r-10"><i class="fa fa-home"></i> Beranda </a> | <a href="#" class="m-l-10 m-r-10" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-legal"></i>Ketentuan & Syarat PPDB</a></span>

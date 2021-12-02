@@ -305,7 +305,7 @@ $user = $user->row(); ?>
       </div>
 
 
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <div class="panel panel-flat">
           <div class="panel-body">
             <fieldset class="content-group">
@@ -550,7 +550,7 @@ $user = $user->row(); ?>
             </fieldset>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
     </div>
