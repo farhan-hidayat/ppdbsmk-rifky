@@ -42,7 +42,7 @@
     <br>
     <table width="100%" border="0">
       <tr>
-        <td colspan="3">Kepala SMA Negeri 1 Belitang Kabupaten OKU Timur dengan ini menyatakan bahwa :</td>
+        <td colspan="3">Kepala SMK Karsa Mulya Palangka Raya dengan ini menyatakan bahwa :</td>
       </tr>
       <tr>
         <td width="200">NO. PENDAFTARAN</td>
@@ -134,17 +134,17 @@
     </center>
     <br>
 
-    Seleksi Sebagai Calon Peserta Didik SMA Negeri  1 Belitang tahun ajaran <?php echo $thn_ppdb; ?>/<?php echo $thn_ppdb+1; ?>.<br>
+    Seleksi Sebagai Calon Peserta Didik SMK Karsa Mulya Palangka Raya tahun ajaran <?php echo $thn_ppdb; ?>/<?php echo $thn_ppdb+1; ?>.<br>
     Demikian pengumuman ini disampaikan untuk dapat digunakan sebagai mestinya.
     <br><br>
 
     <div style="float:right;">
-      OKU Timur, 07 Juli <?php echo date('Y'); ?> <br>
+      Palangka Raya, <?php echo $this->Model_data->tgl_id(date('d-m-Y')); ?> <br>
 			Kepala Sekolah,  <br>
       <br>
       <center>dto</center>
-      <b><u>H. PRIOYITNO, S.Pd., MM.</u></b><br>
-      NIP. 196502231989031006
+      <b><u>XXXXXX, S.Pd., MM.</u></b><br>
+      NIP. 19
     </div>
     <br><br><br><br><br><br>
 

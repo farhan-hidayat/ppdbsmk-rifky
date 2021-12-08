@@ -24,7 +24,7 @@
         <div class="panel-body">
           <h3>
             <center>
-              Selamat <b><?php echo $nama; ?></b> <span class="label label-success" style="font-size:20px;">Lulus</span> Seleksi Sebagai Calon Peserta Didik Baru <b>SMA Negeri 1 Belitang</b>, Silahkan Cetak Surat Pengumuman Sebagai Bukti Lulus Seleksi.
+              Selamat <b><?php echo $nama; ?></b> <span class="label label-success" style="font-size:20px;">Lulus</span> Seleksi Sebagai Calon Peserta Didik Baru <b>SMK Karsa Mulya Palangka Raya</b>, Silahkan Cetak Surat Pengumuman Sebagai Bukti Lulus Seleksi.
               <hr>
               <a href="panel_siswa/cetak_lulus" class="btn btn-success btn-lg" target="_blank"><i class="icon-printer4"></i> Cetak Bukti Lulus</a>
             </center>
@@ -43,7 +43,7 @@
             <center>
               Mohon Maaf <b><?php echo $nama; ?></b>
                <span class="label label-danger" style="font-size:20px;">Tidak Lulus</span> <br>
-              Sebagai Calon Peserta Didik Baru <b>SMA Negeri 1 Belitang</b>.
+              Sebagai Calon Peserta Didik Baru <b>SMK Karsa Mulya Palangka Raya</b>.
             </center>
             <br>
           </h3>
@@ -58,7 +58,7 @@
         </div>
         <div class="panel-body">
           <h3>
-            <center>~ Belum ada Pengumuman dari Panitia PPDB Online SMA Negeri 1 Belitang ~</center>
+            <center>~ Belum ada Pengumuman dari Panitia PPDB Online SMK Karsa Mulya Palangka Raya ~</center>
           </h3>
         </div>
       </div>

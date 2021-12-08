@@ -116,27 +116,12 @@
         <td>:</td>
         <td><?php echo ucwords($user->nama_sekolah); ?></td>
       </tr>
-      <tr>
-        <td>RATA - RATA NILAI RAPOR</td>
-        <td>:</td>
-        <td><?php echo number_format($nilai_rapor,2,",","."); ?></td>
-      </tr>
-      <tr>
-        <td>RATA - RATA NILAI USBN</td>
-        <td>:</td>
-        <td><?php echo number_format($nilai_usbn,2,",","."); ?></td>
-      </tr>
-      <tr>
-        <td>RATA - RATA NILAI UNBK/UNKP</td>
-        <td>:</td>
-        <td><?php echo number_format($nilai_unbk,2,",","."); ?></td>
-      </tr>
     </table>
 
     <center>
     <table width="90%" border="1">
       <tr align="center">
-        <th>Materi dan Jadwal Ujian</th>
+        <th>Hasil Verifikasi</th>
         <th width="100">Ket.</th>
       </tr>
       <tr>
@@ -159,7 +144,7 @@
             </div>
           </td>
           <td>
-            OKU Timur,...................<?php echo $thn_ppdb; ?><br>
+            Palangka Raya, <?php echo $this->Model_data->tgl_id(date('d-m-Y')); ?><br>
       			Verifikator,  <br>
             <br><br><br><br>
             (.............................................)

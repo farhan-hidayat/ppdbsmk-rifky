@@ -36,7 +36,7 @@
     <h4 align="center" style="margin-top:0px;"><u>BUKTI PENDAFTARAN</u></h4>
     <b><center>
       PANITIA PENERIAMAAN PESERTA DIDIK BARU (PPDB) <br>
-      SMA NEGERI 1 BELITANG <br>
+      SMK Karsa Mulya Palangka Raya <br>
       TAHUN PELAJARAN <?php echo $thn_ppdb; ?> / <?php echo $thn_ppdb+1; ?></center>
     </b>
     <br>
@@ -141,11 +141,11 @@
     <br>
 
     <div style="float:right;">
-      OKU Timur, <?php echo $this->Model_data->tgl_id(date('d-m-Y')); ?> <br>
+      Palangka Raya, <?php echo $this->Model_data->tgl_id(date('d-m-Y')); ?> <br>
 			Ketua Panitia PPDB,  <br>
       <img src="img/ttd.jpg" alt="" width="100"><br>
-      <b><u>KETUT SUDIARTE, S.Pd.</u></b><br>
-      NIP. 197001301997031006
+      <b><u>XXXXXX, S.Pd.</u></b><br>
+      NIP. 19
     </div>
     <br><br><br><br><br><br><br><br><br><br>
 

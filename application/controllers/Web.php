@@ -41,6 +41,9 @@ class Web extends CI_Controller
 		$this->db->order_by('id_pdd', 'ASC');
 		$data['v_pdd'] = $this->db->get('tbl_pdd')->result();
 
+		$this->db->order_by('id_jurusan', 'ASC');
+		$data['v_jurusan'] = $this->db->get('tbl_jurusan')->result();
+
 		$this->db->order_by('id_penghasilan', 'ASC');
 		$data['v_penghasilan'] = $this->db->get('tbl_penghasilan')->result();
 
@@ -69,6 +72,7 @@ class Web extends CI_Controller
 				$no_pendaftaran	  = "PSB" . date('Y-m') . sprintf("%03s", $noUrut);
 			}
 
+			$jurusan						= $this->input->post('jurusan');
 			$nis							= $this->input->post('nis');
 			$nisn							= $this->input->post('nisn');
 			$nik							= $this->input->post('nik');
@@ -121,6 +125,7 @@ class Web extends CI_Controller
 			$data = array(
 				'no_pendaftaran'		=> $no_pendaftaran,
 				'password'				  => $nisn,
+				'jurusan'					  		=> $jurusan,
 				'nis'					  		=> $nis,
 				'nisn'				  		=> $nisn,
 				'nik'				  			=> $nik,

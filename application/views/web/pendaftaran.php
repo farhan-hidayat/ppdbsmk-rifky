@@ -126,7 +126,7 @@
                              </fieldset>
 
                         <fieldset>
-                          <legend>Siswa</legend>
+                          <legend>Jurusan</legend>
                           <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
@@ -137,11 +137,22 @@
                         </fieldset>
 
                         <fieldset>
+                          <legend>Siswa</legend>
+                          <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+  														<?php $this->load->view('web/step/3'); ?>
+                            </div>
+                          </div>
+                          <div class="col-lg-12"></div>
+                        </fieldset>
+
+                        <fieldset>
                            <legend>Ortu / Wali</legend>
                            <div class="row">
                              <div class="col-md-2"></div>
                              <div class="col-md-8">
-   														<?php $this->load->view('web/step/3'); ?>
+   														<?php $this->load->view('web/step/4'); ?>
                              </div>
                            </div>
                            <div class="col-lg-12"></div>
@@ -152,7 +163,7 @@
                             <div class="row">
                               <div class="col-md-2"></div>
                               <div class="col-md-8">
-    														<?php $this->load->view('web/step/4'); ?>
+    														<?php $this->load->view('web/step/5'); ?>
                               </div>
                             </div>
                         </fieldset>
@@ -268,7 +279,7 @@
     <script src="assets/kitkat/assets/plugins/multidatepicker/multidatespicker.min.js"></script>
     <script src="assets/kitkat/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script src="assets/kitkat/assets/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
-   <!-- <script src="assets/kitkat/assets/js/builder.js"></script> <!-- Theme Builder -->
+   <!-- <script src="assets/kitkat/assets/js/builder.js"></script>  Theme Builder -->
     <script src="assets/kitkat/assets/js/sidebar_hover.js"></script> <!-- Sidebar on Hover -->
     <script src="assets/kitkat/assets/js/application.js"></script> <!-- Main Application Script -->
     <script src="assets/kitkat/assets/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
