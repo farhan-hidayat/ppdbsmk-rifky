@@ -67,7 +67,7 @@ class Web extends CI_Controller
 			if ($sql->num_rows() == 0) {
 				$no_pendaftaran   = "PSB" . date('Y-m') . "001";
 			} else {
-				$noUrut 	 	= substr($sql->row()->no_pendaftaran, 8, 3);
+				$noUrut 	 	= substr($sql->row()->no_pendaftaran, 12, 3);
 				$noUrut++;
 				$no_pendaftaran	  = "PSB" . date('Y-m') . sprintf("%03s", $noUrut);
 			}
@@ -105,7 +105,6 @@ class Web extends CI_Controller
 			$model_un					= $this->input->post('model_un');
 			$alamat_sekolah		= $this->input->post('alamat_sekolah');
 			$thn_lulus				= $this->input->post('thn_lulus');
-			$rayonisasi				= $this->input->post('rayonisasi');
 			$tgl_siswa				= $this->Model_data->date('waktu_default');
 
 			// if ($_POST['total_nilai'] < 50) {
@@ -158,93 +157,22 @@ class Web extends CI_Controller
 				'model_un'				  => $model_un,
 				'alamat_sekolah'		=> $alamat_sekolah,
 				'thn_lulus'				  => $thn_lulus,
-				'rayonisasi'				=> $rayonisasi,
 				'tgl_siswa'				  => $tgl_siswa
 			);
 			$this->db->insert('tbl_siswa', $data);
 
-			for ($i = 1; $i <= 5; $i++) {
-				if ($i == 1) {
-					$mapel = 'Ilmu Pengetahuan Alam (IPA)';
-					$smstr = 'ipa';
-				} elseif ($i == 2) {
-					$mapel = 'Ilmu Pengetahuan Sosial (IPS)';
-					$smstr = 'ips';
-				} elseif ($i == 3) {
-					$mapel = 'Matematika';
-					$smstr = 'mtk';
-				} elseif ($i == 4) {
-					$mapel = 'Bahasa Indonesia';
-					$smstr = 'ind';
-				} elseif ($i == 5) {
-					$mapel = 'Bahasa Inggris';
-					$smstr = 'ing';
-				}
-				$data2 = array(
-					'mapel'				 		=> $mapel,
-					'semester1'		 		=> $this->input->post($smstr . "1"),
-					'semester2'				=> $this->input->post($smstr . "2"),
-					'semester3'				=> $this->input->post($smstr . "3"),
-					'semester4'				=> $this->input->post($smstr . "4"),
-					'semester5'				=> $this->input->post($smstr . "5"),
-					'rata_rata_nilai'	=> $this->input->post("nilai_" . $smstr),
-					'no_pendaftaran'	=> $no_pendaftaran
-				);
-				$this->db->insert('tbl_rapor', $data2);
-			}
+			$data2 = array(
+				'siswa'	=> $no_pendaftaran,
+				's_akte'	=> "Belum Upload",
+				's_kk'	=> "Belum Upload",
+				's_fk'	=> "Belum Upload",
+				's_skl'	=> "Belum Upload",
+				's_ijazah'	=> "Belum Upload",
+				's_pernyataan'	=> "Belum Upload"
+			);
+			$this->db->insert('tbl_berkas', $data2);
 
-			for ($i = 1; $i <= 7; $i++) {
-				if ($i == 1) {
-					$mapel = 'Pendidikan Agama';
-					$nilai = 'agama';
-				} elseif ($i == 2) {
-					$mapel = 'PKN';
-					$nilai = 'pkn';
-				} elseif ($i == 3) {
-					$mapel = 'Bahasa Indonesia';
-					$nilai = 'ind';
-				} elseif ($i == 4) {
-					$mapel = 'Bahasa Inggris';
-					$nilai = 'ing';
-				} elseif ($i == 5) {
-					$mapel = 'Matematika';
-					$nilai = 'mtk';
-				} elseif ($i == 6) {
-					$mapel = 'Ilmu Pengetahuan Alam (IPA)';
-					$nilai = 'ipa';
-				} elseif ($i == 7) {
-					$mapel = 'Ilmu Pengetahuan Sosial (IPS)';
-					$nilai = 'ipa';
-				}
-				$data3 = array(
-					'mapel_usbn'			=> $mapel,
-					'nilai_usbn'			=> $this->input->post("usbn_" . $nilai),
-					'no_pendaftaran'	=> $no_pendaftaran
-				);
-				$this->db->insert('tbl_nilai_usbn', $data3);
-			}
-
-			for ($i = 1; $i <= 4; $i++) {
-				if ($i == 1) {
-					$mapel = 'Ilmu Pengetahuan Alam (IPA)';
-					$nilai = 'ipa';
-				} elseif ($i == 2) {
-					$mapel = 'Matematika';
-					$nilai = 'mtk';
-				} elseif ($i == 3) {
-					$mapel = 'Bahasa Indonesia';
-					$nilai = 'ind';
-				} elseif ($i == 4) {
-					$mapel = 'Bahasa Inggris';
-					$nilai = 'ing';
-				}
-				$data4 = array(
-					'mapel_unbk'			=> $mapel,
-					'nilai_unbk'			=> $this->input->post("unbk_" . $nilai),
-					'no_pendaftaran'	=> $no_pendaftaran
-				);
-				$this->db->insert('tbl_nilai_unbk', $data4);
-			}
+			
 
 			// $this->session->set_flashdata('msg',
 			// 	'

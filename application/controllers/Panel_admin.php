@@ -367,7 +367,7 @@ class Panel_admin extends CI_Controller {
 			}
 			$this->db->like('tgl_siswa', "$thn", 'after');
 			$this->db->order_by('id_siswa', 'DESC');
-			$data['v_siswa']  		= $this->db->get('tbl_siswa');
+			$data['v_siswa']  		= $this->db->query("SELECT * FROM tbl_siswa,tbl_jurusan WHERE jurusan=id_jurusan order by id_siswa desc");
 			$data['v_thn']				= $thn;
 
 					$this->load->view('admin/header', $data);
@@ -494,7 +494,7 @@ class Panel_admin extends CI_Controller {
 			}
 			$this->db->like('tgl_siswa', "$thn", 'after');
 			$this->db->order_by('id_siswa', 'DESC');
-			$data['v_siswa']  		= $this->db->get('tbl_siswa');
+			$data['v_siswa']  		= $this->db->query("SELECT * FROM tbl_siswa,tbl_jurusan WHERE jurusan=id_jurusan order by id_siswa desc");
 			$data['v_thn']				= $thn;
 
 					$this->load->view('admin/header', $data);

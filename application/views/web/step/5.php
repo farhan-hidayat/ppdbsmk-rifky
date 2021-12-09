@@ -7,7 +7,7 @@
   <div class="form-group" style="padding-bottom:30px;">
       <label class="col-sm-3 control-label"style="text-align:right; margin-top:6px">NPSN Sekolah <span class="text-danger">*</span></label>
       <div class="col-sm-9 prepend-icon" style="margin-top:1px;">
-        <input type="text" name="npsn" class="form-control bg-blue class" onkeypress="return hanyaAngka(this);" maxlength="30" placeholder="NPSN Sekolah" data-parsley-group="block3" data-parsley-errors-container='div[id="error-npsn"]' required>
+        <input type="text" name="npsn" class="form-control bg-blue class" onkeypress="return hanyaAngka(this);" maxlength="30" placeholder="NPSN Sekolah" data-parsley-group="block4" data-parsley-errors-container='div[id="error-npsn"]' required>
         <i class="fa fa-users" style="margin-left:15px;"></i>
         <div id="error-npsn" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
       </div>
@@ -16,7 +16,7 @@
   <div class="form-group" style="padding-bottom:30px;">
       <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Nama Sekolah <span class="text-danger">*</span></label>
       <div class="col-sm-9 prepend-icon">
-        <input type="text" name="nama_sekolah" class="form-control bg-blue" placeholder="Nama Sekolah" maxlength="100" data-parsley-group="block3" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="error-nama_sekolah"]' required>
+        <input type="text" name="nama_sekolah" class="form-control bg-blue" placeholder="Nama Sekolah" maxlength="100" data-parsley-group="block4" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="error-nama_sekolah"]' required>
         <i class="fa fa-university" style="margin-left:15px;"></i>
         <div id="error-nama_sekolah" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
       </div>
@@ -26,7 +26,7 @@
 <div class="form-group">
     <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Status Sekolah <span class="text-danger">*</span></label>
     <div class="col-sm-9" style="margin-top:3px;">
-      <select class="form-control bg-blue class" data-placeholder="Pilih Status Sekolah" name="status_sekolah" data-parsley-group="block3" data-parsley-errors-container='div[id="error-status_sekolah"]' required>
+      <select class="form-control bg-blue class" data-placeholder="Pilih Status Sekolah" name="status_sekolah" data-parsley-group="block4" data-parsley-errors-container='div[id="error-status_sekolah"]' required>
               <option value="">Pilih Status Sekolah</option>
               <option value="NEGERI">NEGERI</option>
               <option value="SWASTA">SWASTA</option>
@@ -38,7 +38,7 @@
 <div class="form-group">
     <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Model Ujian Nasional <span class="text-danger">*</span></label>
     <div class="col-sm-9" style="margin-top:3px;">
-      <select class="form-control bg-blue class" data-placeholder="Pilih Model Ujian Nasional" name="model_un" data-parsley-group="block3" data-parsley-errors-container='div[id="error-model_un"]' required>
+      <select class="form-control bg-blue class" data-placeholder="Pilih Model Ujian Nasional" name="model_un" data-parsley-group="block4" data-parsley-errors-container='div[id="error-model_un"]' required>
               <option value="">Pilih Model Ujian Nasional</option>
               <option value="UNBK">UNBK</option>
               <option value="UNKP">UNKP</option>
@@ -50,7 +50,7 @@
         <div class="form-group" >
             <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Alamat Sekolah <span class="text-danger">*</span></label>
             <div class="col-sm-9 prepend-icon" style="margin-top:3px;">
-              <input type="text" name="alamat_sekolah" class="form-control bg-blue class" placeholder="Alamat Sekolah" data-parsley-group="block3" data-parsley-errors-container='div[id="error-alamat_sekolah"]' required>
+              <input type="text" name="alamat_sekolah" class="form-control bg-blue class" placeholder="Alamat Sekolah" data-parsley-group="block4" data-parsley-errors-container='div[id="error-alamat_sekolah"]' required>
               <i class="fa fa-map-marker" style="margin-left:15px;"></i>
               <div id="error-alamat_sekolah" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
             </div>
@@ -59,7 +59,7 @@
         <div class="form-group" >
             <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">Tahun Lulus <span class="text-danger">*</span></label>
             <div class="col-sm-4 prepend-icon" style="margin-top:3px;">
-              <select class="form-control bg-blue class" data-placeholder="Pilih Tahun Lulus" name="thn_lulus" data-parsley-group="block3" data-parsley-errors-container='div[id="error-thn_lulus"]' required>
+              <select class="form-control bg-blue class" data-placeholder="Pilih Tahun Lulus" name="thn_lulus" data-parsley-group="block4" data-parsley-errors-container='div[id="error-thn_lulus"]' required>
                <option value="" selected>Pilih Tahun Lulus...</option>
                <?php
                $thn_max=date('Y');

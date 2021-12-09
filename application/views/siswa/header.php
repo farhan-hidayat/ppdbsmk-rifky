@@ -3,6 +3,8 @@ date_default_timezone_set('Asia/Jakarta');
 $cek    = $user->row();
 $nama   = $cek->nama_lengkap;
 $email  = '';
+$ceks = $this->session->userdata('no_pendaftaran');
+$berkas = $this->db->get_where('tbl_berkas', "siswa='$ceks'")->row();
 
 $level  = 'Calon Siswa';
 
@@ -82,7 +84,13 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="assets/panel/images/default.png" alt="foto">
+						<?php
+						if ($berkas->foto != null) {
+							echo "<img src='files/berkas/<?php echo $berkas->foto; ?>' alt='foto'>";
+						} else {
+							echo "<img src='img/user.png' alt='foto'>";
+						}
+						?>
 						<span><?php echo ucwords($nama); ?></span>
 						<i class="caret"></i>
 					</a>

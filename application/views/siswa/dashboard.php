@@ -92,25 +92,7 @@
               <!-- /current server load -->
             </div>
 
-            <div class="col-lg-3">
-              <!-- Current server load -->
-            <center>
-              <a href="panel_siswa/rekap_nilai" target="_blank">
-              <div class="panel bg-blue-400">
-                <div class="panel-body">
-                  <div class="heading-elements">
-                    <span class="heading-text"></span>
-                  </div>
-                  <h1 class="no-margin">
-                    <i class="icon-printer4" style="font-size:200px;"></i>
-                  </h1>
-                  Rekap Nilai
-                </div>
-              </div>
-              </a>
-            </center>
-              <!-- /current server load -->
-            </div>
+            
 
             <div class="col-lg-3">
               <!-- Current server load -->

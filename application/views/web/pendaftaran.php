@@ -168,16 +168,6 @@
                             </div>
                         </fieldset>
                         
-                        <!-- <fieldset>
-                            <legend>Nilai</legend>
-                            <div class="row">
-                              <div class="col-md-2"></div>
-                              <div class="col-md-8">
-                                <?php $this->load->view('web/step/6'); ?>
-                              </div>
-                            </div>
-                        </fieldset> -->
-
                         <fieldset>
                            <legend>Konfirmasi</legend>
                            <div class="row">

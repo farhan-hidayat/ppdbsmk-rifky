@@ -42,6 +42,7 @@
               <th>NISN</th>
               <th>NIK</th>
               <th>Nama Lengkap</th>
+              <th>Jurusan</th>
               <th>Status Lulus</th>
               <th class="text-center" width="220">Aksi</th>
             </tr>
@@ -57,6 +58,7 @@
                   <td><?php echo $baris->nisn; ?></td>
                   <td><?php echo $baris->nik; ?></td>
                   <td><?php echo $baris->nama_lengkap; ?></td>
+                  <td><?php echo $baris->nama_jurusan; ?></td>
                   <td align="center">
                     <?php if ($baris->status_pendaftaran == 'lulus') {?>
                       <label class="label label-success">Lulus</label>
