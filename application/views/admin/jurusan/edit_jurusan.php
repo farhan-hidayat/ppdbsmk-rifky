@@ -8,10 +8,10 @@
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-      <div class="panel panel-flat">
+        <div class="panel panel-flat">
           <div class="panel-body">
             <fieldset class="content-group">
-              <legend class="text-bold"><i class="icon-users"></i>Tambah Jurusan</legend>
+              <legend class="text-bold"><i class="icon-users"></i>Edit Jurusan</legend>
               <form class="form-horizontal" action="" method="post">
                 <div class="form-group">
                   <label class="control-label col-lg-3">Nama Jurusan</label>
@@ -31,9 +31,9 @@
               <hr style="margin-top:-10px;">
               <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
             </div>
-          </form>
+            </form>
           </div>
-      </div>
+        </div>
       </div>
 
     </div>

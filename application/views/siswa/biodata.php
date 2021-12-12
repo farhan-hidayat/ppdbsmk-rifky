@@ -23,31 +23,38 @@ $user = $user->row(); ?>
 
   <!-- Content area -->
   <div class="content">
-
+    <?php
+    echo $this->session->flashdata('msg');
+    ?>
+    <?php
+    echo $this->session->flashdata('msg2');
+    ?>
     <!-- Dashboard content -->
     <div class="row">
       <div class="col-md-3">
-        <div class="panel panel-flat">
-          <div class="panel-body">
-            <input type="file" name="foto" class="btn btn-primary">
-            <center>
-              <?php
-              if ($berkas->foto != null) {
-                echo "<img src='files/berkas/<?php echo $berkas->foto; ?>' alt='<?php echo $user->nama_lengkap; ?>' class='' width='176'>";
-              } else {
-                echo "<img src='img/user.png' alt='<?php echo $user->nama_lengkap; ?>' class='' width='176'>";
-              }
-              ?>
-            </center>
-            <br>
-            <fieldset class="content-group">
-              <hr style="margin-top:0px;">
-              <i class="icon-calendar"></i> <b>Tanggal Daftar</b> :
-              <?php echo $this->Model_data->tgl_id(date('d-m-Y H:i:s', strtotime($user->tgl_siswa))); ?>
-            </fieldset>
-            </form>
+        <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+          <div class="panel panel-flat">
+            <div class="panel-body">
+              <input type="file" name="foto" id="foto" accept="image/png, image/jpeg, image/jpg, image/gif">
+              <center>
+                <?php
+                if ($berkas->foto != null) {
+                  echo "<img src='files/berkas/<?php echo $berkas->foto; ?>' alt='<?php echo $user->nama_lengkap; ?>' class='' width='176'>";
+                } else {
+                  echo "<img src='img/user.png' alt='<?php echo $user->nama_lengkap; ?>' class='' width='176'>";
+                }
+                ?>
+              </center>
+              <br>
+              <fieldset class="content-group">
+                <hr style="margin-top:0px;">
+                <i class="icon-calendar"></i> <b>Tanggal Daftar</b> :
+                <?php echo $this->Model_data->tgl_id(date('d-m-Y H:i:s', strtotime($user->tgl_siswa))); ?>
+                <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
+              </fieldset>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
 
       <div class="col-md-9">
@@ -56,11 +63,11 @@ $user = $user->row(); ?>
             <fieldset class="content-group">
               <legend class="text-bold"><i class="icon-folder"></i> Berkas</legend>
               <div class="table-responsive">
-              <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped">
                   <tr>
-                    <th>Akte<input type="file" name=""></th>
-                    <th>KK<input type="file" name=""></th>
-                    <th>Foto Keluarga<input type="file" name=""></th>
+                    <th>Akte<input type="file" name="akte"></th>
+                    <th>KK<input type="file" name="kk"></th>
+                    <th>Foto Keluarga<input type="file" name="fk"></th>
                   </tr>
                   <tr>
                     <td><b><?php echo $berkas->s_akte; ?></b></td>
@@ -68,9 +75,9 @@ $user = $user->row(); ?>
                     <td><b><?php echo $berkas->s_fk; ?></b></td>
                   </tr>
                   <tr>
-                    <th>SKL<input type="file" name=""></th>
-                    <th>Ijazah<input type="file" name=""></th>
-                    <th>Pernyataan<input type="file" name=""></th>
+                    <th>SKL<input type="file" name="skl"></th>
+                    <th>Ijazah<input type="file" name="ijazah"></th>
+                    <th>Pernyataan<input type="file" name="pernyataan"></th>
                   </tr>
                   <tr>
                     <td><b><?php echo $berkas->s_skl; ?></b></td>
@@ -319,6 +326,6 @@ $user = $user->row(); ?>
       </div>
 
 
-      
+
     </div>
     <!-- /dashboard content -->

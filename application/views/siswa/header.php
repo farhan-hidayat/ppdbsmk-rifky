@@ -16,11 +16,12 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 <!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<base href="<?php echo base_url();?>"/>
+	<base href="<?php echo base_url(); ?>" />
 
 	<title><?php echo $judul_web; ?></title>
 	<link rel="icon" type="image/png" href="assets/panel/images/logo_dark.png">
@@ -41,29 +42,31 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 	<script type="text/javascript" src="assets/panel/js/plugins/loaders/blockui.min.js"></script>
 	<!-- /core JS files -->
 	<?php
-	if ($sub_menu == "" or $sub_menu == "biodata") {?>
-	<!-- Theme JS files -->
-	<script type="text/javascript" src="assets/panel/js/plugins/visualization/d3/d3.min.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/visualization/d3/d3_tooltip.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/forms/styling/switchery.min.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/forms/styling/uniform.min.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/ui/moment/moment.min.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/pickers/daterangepicker.js"></script>
+	if ($sub_menu == "" or $sub_menu == "biodata") { ?>
+		<!-- Theme JS files -->
+		<script type="text/javascript" src="assets/panel/js/plugins/visualization/d3/d3.min.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/visualization/d3/d3_tooltip.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/forms/styling/switchery.min.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/forms/styling/uniform.min.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/ui/moment/moment.min.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/pickers/daterangepicker.js"></script>
 
-	<script type="text/javascript" src="assets/panel/js/core/app.js"></script>
-	<!-- <script type="text/javascript" src="assets/panel/js/pages/dashboard.js"></script> -->
-	<!-- /theme JS files -->
+		<script type="text/javascript" src="assets/panel/js/core/app.js"></script>
+		<!-- <script type="text/javascript" src="assets/panel/js/pages/dashboard.js"></script> -->
+		<!-- /theme JS files -->
 	<?php
 	} ?>
 
-		<script src="assets/panel/js/select2.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="assets/panel/css/sweetalert.css">
+	<script src="assets/panel/js/select2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/panel/css/sweetalert.css">
 
-		<script type="text/javascript" src="assets/panel/js/sweetalert.min.js"></script>
+	<script type="text/javascript" src="assets/panel/js/sweetalert.min.js"></script>
 </head>
 
-<body class="navbar-bottom <?php if($menu=='panel_siswa' AND $sub_menu=='biodata'){echo'sidebar-xs';} ?>">
+<body class="navbar-bottom <?php if ($menu == 'panel_siswa' and $sub_menu == 'biodata') {
+								echo 'sidebar-xs';
+							} ?>">
 
 	<!-- Main navbar -->
 	<div class="navbar navbar-inverse">
@@ -142,9 +145,15 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 
 								<!-- Main -->
 								<li class="navigation-header"><span>Utama</span> <i class="icon-menu" title="Main pages"></i></li>
-								<li class="<?php if($menu == 'panel_siswa' AND $sub_menu == ''){echo 'active';} ?>"><a href="panel_siswa"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-								<li class="<?php if($menu == 'panel_siswa' AND $sub_menu == 'pengumuman'){echo 'active';} ?>"><a href="panel_siswa/pengumuman"><i class="glyphicon glyphicon-bullhorn"></i> <span>Pengumuman</span></a></li>
-								<li class="<?php if($menu == 'panel_siswa' AND $sub_menu == 'biodata'){echo 'active';} ?>"><a href="panel_siswa/biodata"><i class="icon-file-check2"></i> <span>Biodata Pendaftaran</span></a></li>
+								<li class="<?php if ($menu == 'panel_siswa' and $sub_menu == '') {
+												echo 'active';
+											} ?>"><a href="panel_siswa"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+								<li class="<?php if ($menu == 'panel_siswa' and $sub_menu == 'pengumuman') {
+												echo 'active';
+											} ?>"><a href="panel_siswa/pengumuman"><i class="glyphicon glyphicon-bullhorn"></i> <span>Pengumuman</span></a></li>
+								<li class="<?php if ($menu == 'panel_siswa' and $sub_menu == 'biodata') {
+												echo 'active';
+											} ?>"><a href="panel_siswa/biodata"><i class="icon-file-check2"></i> <span>Biodata Pendaftaran</span></a></li>
 
 								<li><a href="panel_siswa/cetak" target="_blank"><i class="icon-printer2"></i> <span>Cetak Bukti Pendaftaran</span></a></li>
 								<!-- <li><a href="panel_siswa/rekap_nilai" target="_blank"><i class="icon-printer4"></i> <span>Rekap Nilai</span></a></li> -->

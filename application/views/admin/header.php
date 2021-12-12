@@ -3,6 +3,8 @@ date_default_timezone_set('Asia/Jakarta');
 $cek    = $user->row();
 $nama   = $cek->nama_lengkap;
 $email  = '';
+$level = $this->session->userdata('level');
+
 
 $level  = $cek->username;
 
@@ -14,11 +16,12 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 <!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<base href="<?php echo base_url();?>"/>
+	<base href="<?php echo base_url(); ?>" />
 
 	<title><?php echo $judul_web; ?></title>
 	<link rel="icon" type="image/png" href="assets/panel/images/logo_dark.png">
@@ -39,39 +42,39 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 	<script type="text/javascript" src="assets/panel/js/plugins/loaders/blockui.min.js"></script>
 	<!-- /core JS files -->
 	<?php
-	if ($sub_menu == "" or $sub_menu == "profile" or $sub_menu == "ubah_pass" or $menu == "laporan" or $sub_menu == "statistik") {?>
-	<!-- Theme JS files -->
-	<script type="text/javascript" src="assets/panel/js/plugins/visualization/d3/d3.min.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/visualization/d3/d3_tooltip.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/forms/styling/switchery.min.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/forms/styling/uniform.min.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/ui/moment/moment.min.js"></script>
-	<script type="text/javascript" src="assets/panel/js/plugins/pickers/daterangepicker.js"></script>
-
-	<script type="text/javascript" src="assets/panel/js/core/app.js"></script>
-	<!-- <script type="text/javascript" src="assets/panel/js/pages/dashboard.js"></script> -->
-	<!-- /theme JS files -->
-	<?php
-	} ?>
-
-	<?php
-	if ($sub_menu == "verifikasi" or $sub_menu == "set_pengumuman") {?>
+	if ($sub_menu == "" or $sub_menu == "profile" or $sub_menu == "ubah_pass" or $menu == "laporan" or $sub_menu == "statistik") { ?>
 		<!-- Theme JS files -->
-	<script type="text/javascript" src="assets/panel/js/plugins/tables/datatables/datatables.min.js"></script>
-	<!-- <script type="text/javascript" src="assets/panel/js/plugins/forms/selects/select2.min.js"></script> -->
+		<script type="text/javascript" src="assets/panel/js/plugins/visualization/d3/d3.min.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/visualization/d3/d3_tooltip.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/forms/styling/switchery.min.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/forms/styling/uniform.min.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/ui/moment/moment.min.js"></script>
+		<script type="text/javascript" src="assets/panel/js/plugins/pickers/daterangepicker.js"></script>
 
-	<script type="text/javascript" src="assets/panel/js/core/app.js"></script>
-	<script type="text/javascript" src="assets/panel/js/pages/datatables_basic.js"></script>
-	<!-- /theme JS files -->
+		<script type="text/javascript" src="assets/panel/js/core/app.js"></script>
+		<!-- <script type="text/javascript" src="assets/panel/js/pages/dashboard.js"></script> -->
+		<!-- /theme JS files -->
+	<?php
+	} ?>
+
+	<?php
+	if ($sub_menu == "verifikasi" or $sub_menu == "set_pengumuman") { ?>
+		<!-- Theme JS files -->
+		<script type="text/javascript" src="assets/panel/js/plugins/tables/datatables/datatables.min.js"></script>
+		<!-- <script type="text/javascript" src="assets/panel/js/plugins/forms/selects/select2.min.js"></script> -->
+
+		<script type="text/javascript" src="assets/panel/js/core/app.js"></script>
+		<script type="text/javascript" src="assets/panel/js/pages/datatables_basic.js"></script>
+		<!-- /theme JS files -->
 
 	<?php
 	} ?>
 
-		<script src="assets/panel/js/select2.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="assets/panel/css/sweetalert.css">
+	<script src="assets/panel/js/select2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/panel/css/sweetalert.css">
 
-		<script type="text/javascript" src="assets/panel/js/sweetalert.min.js"></script>
+	<script type="text/javascript" src="assets/panel/js/sweetalert.min.js"></script>
 </head>
 
 <body class="navbar-bottom">
@@ -148,22 +151,45 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 
 								<!-- Main -->
 								<li class="navigation-header"><span>Utama</span> <i class="icon-menu" title="Main pages"></i></li>
-								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == ''){echo 'active';} ?>"><a href="panel_admin"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == 'verifikasi' OR $sub_menu == 'edit_materi'){echo 'active';} ?>"><a href="panel_admin/verifikasi"><i class="icon-file-check"></i> <span>Verifikasi</span></a></li>
-								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == 'jurusan'){echo 'active';} ?>"><a href="panel_admin/jurusan"><i class="icon-users"></i> <span>Jurusan</span></a></li>
-								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == 'export'){echo 'active';} ?>"><a href="panel_admin/export"><i class="icon-file-excel"></i> <span>Export Formulir</span></a></li>
-
-								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == 'set_pengumuman'){echo 'active';} ?>"><a href="panel_admin/set_pengumuman"><i class="icon-display4"></i> <span>Setting Pengumuman</span></a></li>
-
-								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == 'statistik'){echo 'active';} ?>"><a href="panel_admin/statistik"><i class="icon-stats-dots"></i> <span>Statistik Pendaftaran</span></a></li>
+								<li class="<?php if ($menu == 'panel_admin' and $sub_menu == '') {
+												echo 'active';
+											} ?>"><a href="panel_admin"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+								<?php if ($level == "admin" || $level == "panitia") { ?>
+									<li class="<?php if ($menu == 'panel_admin' and $sub_menu == 'verifikasi' or $sub_menu == 'edit_materi') {
+													echo 'active';
+												} ?>"><a href="panel_admin/verifikasi"><i class="icon-file-check"></i> <span>Verifikasi</span></a></li>
+								<?php } ?>
+								<?php if ($level == "admin") { ?>
+									<li class="<?php if ($menu == 'panel_admin' and $sub_menu == 'jurusan') {
+													echo 'active';
+												} ?>"><a href="panel_admin/jurusan"><i class="icon-home"></i> <span>Jurusan</span></a></li>
+									<li class="<?php if ($menu == 'panel_admin' and $sub_menu == 'jurusan') {
+													echo 'active';
+												} ?>"><a href="panel_admin/user"><i class="icon-users4"></i> <span>Pengguna</span></a></li>
+								<?php } ?>
+								<li class="<?php if ($menu == 'panel_admin' and $sub_menu == 'export') {
+												echo 'active';
+											} ?>"><a href="panel_admin/export"><i class="icon-file-excel"></i> <span>Export Formulir</span></a></li>
+								<?php if ($level == "admin" || $level == "panitia") { ?>
+									<li class="<?php if ($menu == 'panel_admin' and $sub_menu == 'set_pengumuman') {
+													echo 'active';
+												} ?>"><a href="panel_admin/set_pengumuman"><i class="icon-display4"></i> <span>Setting Pengumuman</span></a></li>
+								<?php } ?>
+								<li class="<?php if ($menu == 'panel_admin' and $sub_menu == 'statistik') {
+												echo 'active';
+											} ?>"><a href="panel_admin/statistik"><i class="icon-stats-dots"></i> <span>Statistik Pendaftaran</span></a></li>
 								<!-- /Main -->
 								<!-- Data Lainnya -->
 								<li class="navigation-header"><span>Lainnya</span> <i class="icon-menu" title="Data visualization"></i></li>
 								<li>
 									<a href="#"><i class="icon-cog3"></i> <span>Pengaturan</span></a>
 									<ul>
-										<li class="<?php if($sub_menu == 'profile'){echo 'active';} ?>"><a href="panel_admin/profile">Profile</a></li>
-										<li class="<?php if($sub_menu == 'ubah_pass'){echo 'active';} ?>"><a href="panel_admin/ubah_pass">Ubah Password</a></li>
+										<li class="<?php if ($sub_menu == 'profile') {
+														echo 'active';
+													} ?>"><a href="panel_admin/profile">Profile</a></li>
+										<li class="<?php if ($sub_menu == 'ubah_pass') {
+														echo 'active';
+													} ?>"><a href="panel_admin/ubah_pass">Ubah Password</a></li>
 									</ul>
 								</li>
 								<li><a href="panel_admin/logout"><i class="icon-switch2"></i> <span>Keluar</span></a></li>

@@ -1,6 +1,7 @@
 <?php $ceks = $this->session->userdata('no_pendaftaran'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,9 @@
     <meta name="author" content="">
 
     <title>PPDB Online | SMK Karsa Mulya Palangka Raya</title>
-		<base href="<?php echo base_url();?>"/>
+    <base href="<?php echo base_url(); ?>" />
 
-		<link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
     <!-- Bootstrap Core CSS -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/faa.css" rel="stylesheet">
@@ -65,45 +66,49 @@
 
     <!-- Header -->
     <header>
-      <?php
-      if (strtolower($this->uri->segment(1)) == 'logcs') {
-        $this->load->view('web/login');
-      } ?>
+        <?php
+        if (strtolower($this->uri->segment(1)) == 'logcs') {
+            $this->load->view('web/login');
+        } ?>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12" >
+                <div class="col-lg-12">
                     <img class="img-responsive" src="img/logo.png" style="margin-top:-15%;margin-bottom:-10px;" width="100">
                     <div class="intro-text"><br>
                         <span class="name shad" style="font-size:35px">PPDB ONLINE <br> SMK Karsa Mulya Palangka Raya</span>
 
                         <br>
-                        
-                      <?php if ($now >= $start && $now < $end) {?>
-                        
-                        <span class="skills">
-                        	<a href="files/Panduan_PPDB_Online_SMKPlusAlMaftuh.pdf" class="btn btn-danger btn-lg"><i class="fa fa-file-pdf-o faa-pulse animated"></i> &nbsp;Download Panduan PPDB Online</a>
-                        </span>
-                        <br> <br>
-                        <hr class="star-light">
-												<br>
-                        <!-- <h3>Login Calon Siswa Terdaftar di PPDB Online SMK Karsa Mulya Palangka Raya</h3> -->
-                        <span>
-                         <a href="pendaftaran" class="btn btn-success btn-lg" style="width:300px;margin:5px;"><i class="fa fa-file faa-pulse animated"></i> &nbsp;Pendaftaran PPDB Online</a>
-												 <a href="logcs" class="btn btn-success btn-lg" style="width:300px;margin:5px;"><i class="fa fa-users faa-pulse animated"></i> &nbsp;<?php if($ceks==''){echo "Login";}else{echo "Panel";} ?> Calon Siswa</a>
-												 <br>
-											  </span>
-                      <?php }else{ ?>
-                        <span class="skills">
-                        </span>
-                        <br> <br>
-                        <hr class="star-light">
-												<br>
-                        <!-- <h3>Login Calon Siswa Terdaftar di PPDB Online SMK Karsa Mulya Palangka Raya</h3> -->
-                        <span>
-                         <a href="javascript:void(0);" class="btn btn-success btn-lg" style="margin:5px;"><i class="fa fa-file faa-pulse animated"></i> &nbsp;Pendaftaran PPDB Online ditutup</a>
-												 <br>
-											  </span>
-                      <?php } ?>
+
+                        <?php if ($now >= $start && $now < $end) { ?>
+
+                            <span class="skills">
+                                <a href="files/Panduan_PPDB_Online_SMKPlusAlMaftuh.pdf" class="btn btn-danger btn-lg"><i class="fa fa-file-pdf-o faa-pulse animated"></i> &nbsp;Download Panduan PPDB Online</a>
+                            </span>
+                            <br> <br>
+                            <hr class="star-light">
+                            <br>
+                            <!-- <h3>Login Calon Siswa Terdaftar di PPDB Online SMK Karsa Mulya Palangka Raya</h3> -->
+                            <span>
+                                <a href="pendaftaran" class="btn btn-success btn-lg" style="width:300px;margin:5px;"><i class="fa fa-file faa-pulse animated"></i> &nbsp;Pendaftaran PPDB Online</a>
+                                <a href="logcs" class="btn btn-success btn-lg" style="width:300px;margin:5px;"><i class="fa fa-users faa-pulse animated"></i> &nbsp;<?php if ($ceks == '') {
+                                                                                                                                                                        echo "Login";
+                                                                                                                                                                    } else {
+                                                                                                                                                                        echo "Panel";
+                                                                                                                                                                    } ?> Calon Siswa</a>
+                                <br>
+                            </span>
+                        <?php } else { ?>
+                            <span class="skills">
+                            </span>
+                            <br> <br>
+                            <hr class="star-light">
+                            <br>
+                            <!-- <h3>Login Calon Siswa Terdaftar di PPDB Online SMK Karsa Mulya Palangka Raya</h3> -->
+                            <span>
+                                <a href="javascript:void(0);" class="btn btn-success btn-lg" style="margin:5px;"><i class="fa fa-file faa-pulse animated"></i> &nbsp;Pendaftaran PPDB Online ditutup</a>
+                                <br>
+                            </span>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -122,14 +127,14 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 portfolio-item">
-                    <a href="<?php echo base_url();?>" target="_blank" class="portfolio-link">
+                    <a href="https://www.smkkarsamulya-palangkaraya.sch.id/" target="_blank" class="portfolio-link">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
                         <img src="img/logo.png" class="img-thumbnail" alt=""><br><br>
-                        <span class="btn btn-success btn-block"><?php echo base_url();?></span>
+                        <span class="btn btn-success btn-block">https://www.smkkarsamulya-palangkaraya.sch.id/</span>
                     </a>
                 </div>
 
@@ -149,7 +154,7 @@
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2" style="text-align:justify">
                     <p>SMK Karsa Mulya Palangka Raya menyediakan PPDB secara <i>online</i> diharapkan proses PPDB dapat berjalan cepat
-                    dan bisa dilakukan dimanapun dan kapanpun selama sesi PPDB Online dibuka. Proses pendaftaran calon siswa baru tidak menggunakan formulir konvensional hanya dengan mengakses website PPDB Online SMK Karsa Mulya Palangka Raya. </p>
+                        dan bisa dilakukan dimanapun dan kapanpun selama sesi PPDB Online dibuka. Proses pendaftaran calon siswa baru tidak menggunakan formulir konvensional hanya dengan mengakses website PPDB Online SMK Karsa Mulya Palangka Raya. </p>
                 </div>
                 <div class="col-lg-4" style="text-align:justify">
                     <p>Pengisian form PPDB Online mohon diperhatikan data yang dibutuhkan yang nantinya akan dipakai dalam proses PPDB. Setelah proses pengisian form PPDB secara online berhasil dilakukan, calon siswa akan mendapat bukti daftar dengan nomor pendaftaran dan harus disimpan yang akan digunakan untuk proses selanjutnya.</p>
@@ -162,7 +167,11 @@
                         <i class="fa fa-tasks"></i> Prosedur PPDB Online
                     </a>&nbsp;&nbsp;
                     <a href="logcs" class="btn btn-md btn-outline">
-                        <i class="fa fa-sign-in"></i> <?php if($ceks==''){echo "Login";}else{echo "Panel";} ?> Calon Siswa
+                        <i class="fa fa-sign-in"></i> <?php if ($ceks == '') {
+                                                            echo "Login";
+                                                        } else {
+                                                            echo "Panel";
+                                                        } ?> Calon Siswa
                     </a>&nbsp;&nbsp;
 
                 </div>
@@ -170,7 +179,7 @@
         </div>
     </section>
 
-     <section id="prosedur">
+    <section id="prosedur">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -182,7 +191,7 @@
                 <div class="col-lg-12" style="margin-top:-10px;">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                       <img class="img-responsive" src="img/alur_ppdb_online_new.jpg" alt="">
+                        <img class="img-responsive" src="img/alur_ppdb_online_new.jpg" alt="">
                     </div>
                     <div class="col-md-2"></div>
                     <div class="row">
@@ -191,16 +200,16 @@
                                 <h4>Penjelasan Prosedur PPDB Online</h4>
                                 <hr class="star-primary">
                                 <ol style="font-size:18px;text-align:justify">
-                                <li>Calon Siswa mendaftarkan diri atau melakukan <b><a href="pendaftaran">Pendaftaran PPDB <i>online</i></a></b> melalui website <b><a href="">PPDB SMK Karsa Mulya Palangka Raya</a></b>.</li>
-                                <li>Setelah Calon Siswa berhasil melakukan pendaftaran, Calon siswa wajib melakukan <b>Print Out Pendaftaran & Mempersiapkan Kelengkapan Berkas PPDB SMK Karsa Mulya Palangka Raya</b>.</li>
-                                <li>Calon siswa datang ke SMK Karsa Mulya Palangka Raya untuk <b>VERIFIKASI</b>, membawa <b>Bukti pendaftaran & Kelengkapan Berkas PPDB SMK Karsa Mulya Palangka Raya</b>. </li>
-                                <li>Panitia PPDB melakukan <b>Verifikasi dan Validasi Berkas Pendaftaran</b>.</li>
-                                <li>Setelah selesai Calon Siswa Menerima <b>TANDA BUKTI VERIFIKASI</b>.</li>
-                                <li>Calon Siswa wajib mengambil <b>NOMOR TEST & Pengecekan Ruang Ujian</b>.</li>
-                                <li>Jika Calon Siswa sudah mengambil <b>NOMOR TEST & Pengecekan Ruang Ujian</b> selanjutnya Calon Siswa wajib melakukan <b>TEST tertulis POTENSI AKADEMIK</b>.</li>
-																<li>PENGUMUMAN HASIL PPDB Online bisa dilihat di Web PPDB SMK Karsa Mulya Palangka Raya. Untuk <b>No. Pendaftaran</b> sesuaikan dengan <b>Formulir No. Pendaftaran</b> & <b>Passwordnya</b> yaitu <b>NISN</b> Calon Siswa tersebut.</li>
-																<li>Jika Calon Siswa dinyatakan <b>LULUS</b> maka Calon Siswa Wajib <b>Registrasi/Daftar Ulang</b> di <b>SMK Karsa Mulya Palangka Raya</b>.</li>
-															</ol>
+                                    <li>Calon Siswa mendaftarkan diri atau melakukan <b><a href="pendaftaran">Pendaftaran PPDB <i>online</i></a></b> melalui website <b><a href="">PPDB SMK Karsa Mulya Palangka Raya</a></b>.</li>
+                                    <li>Setelah Calon Siswa berhasil melakukan pendaftaran, Calon siswa wajib melakukan <b>Print Out Pendaftaran & Mempersiapkan Kelengkapan Berkas PPDB SMK Karsa Mulya Palangka Raya</b>.</li>
+                                    <li>Calon siswa datang ke SMK Karsa Mulya Palangka Raya untuk <b>VERIFIKASI</b>, membawa <b>Bukti pendaftaran & Kelengkapan Berkas PPDB SMK Karsa Mulya Palangka Raya</b>. </li>
+                                    <li>Panitia PPDB melakukan <b>Verifikasi dan Validasi Berkas Pendaftaran</b>.</li>
+                                    <li>Setelah selesai Calon Siswa Menerima <b>TANDA BUKTI VERIFIKASI</b>.</li>
+                                    <li>Calon Siswa wajib mengambil <b>NOMOR TEST & Pengecekan Ruang Ujian</b>.</li>
+                                    <li>Jika Calon Siswa sudah mengambil <b>NOMOR TEST & Pengecekan Ruang Ujian</b> selanjutnya Calon Siswa wajib melakukan <b>TEST tertulis POTENSI AKADEMIK</b>.</li>
+                                    <li>PENGUMUMAN HASIL PPDB Online bisa dilihat di Web PPDB SMK Karsa Mulya Palangka Raya. Untuk <b>No. Pendaftaran</b> sesuaikan dengan <b>Formulir No. Pendaftaran</b> & <b>Passwordnya</b> yaitu <b>NISN</b> Calon Siswa tersebut.</li>
+                                    <li>Jika Calon Siswa dinyatakan <b>LULUS</b> maka Calon Siswa Wajib <b>Registrasi/Daftar Ulang</b> di <b>SMK Karsa Mulya Palangka Raya</b>.</li>
+                                </ol>
                             </div>
                         </div>
                     </div>
@@ -210,26 +219,28 @@
     </section>
 
     <!-- Contact Section -->
-		<section class="success" id="contact">
+    <section class="success" id="contact">
         <!-- <div class="container"> -->
-            <div class="row" style="margin-top:-100px;margin-bottom:-105px;">
-                <div class="col-lg-4 text-center">
-                  <br><br>
-                    <h2>Kontak Kami</h2>
-                    <hr class="star-light">
-                    <h4>
-                        Jl. G. Obos Km. 5 No. 130 Palangka Raya - Kalimantan Tengah, Indonesia <br><br>
-                    </h4>
-                    <span style="color:#222;"><b><i class="fa fa-phone-square"></i> 0812-1234-1234</b> </span>
-										&nbsp;
-                    <span class="eml" style="color:#222;"><i class="fa fa-envelope"></i> smkkarsamulya@gmail.com</span>
-                    <br>
-                    <a href="<?php echo base_url();?>" target="_blank"><h4 class="btn btn-success">SMK Karsa Mulya Palangka Raya </h4></a>
-                </div>
-                <div class="col-lg-8 text-center">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126760.17535488632!2d106.81057360641401!3d-6.859953923230144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e683514dde3f811%3A0x267ac991e47757a7!2sSMK%20Plus%20Al-Maftuh!5e0!3m2!1sid!2sid!4v1570175071092!5m2!1sid!2sid" width="100%" height="465" frameborder="0" style="border:0" allowfullscreen></iframe>
-              	</div>
+        <div class="row" style="margin-top:-100px;margin-bottom:-105px;">
+            <div class="col-lg-4 text-center">
+                <br><br>
+                <h2>Kontak Kami</h2>
+                <hr class="star-light">
+                <h4>
+                    Jl. G. Obos Km. 5 No. 130 Palangka Raya - Kalimantan Tengah, Indonesia <br><br>
+                </h4>
+                <span style="color:#222;"><b><i class="fa fa-phone-square"></i> 0812-1234-1234</b> </span>
+                &nbsp;
+                <span class="eml" style="color:#222;"><i class="fa fa-envelope"></i> smkkarsamulya@gmail.com</span>
+                <br>
+                <a href="<?php echo base_url(); ?>" target="_blank">
+                    <h4 class="btn btn-success">SMK Karsa Mulya Palangka Raya </h4>
+                </a>
             </div>
+            <div class="col-lg-8 text-center">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.778466779021!2d113.87925051475527!3d-2.236737298369712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dfcb3474e0d19f3%3A0x835ed845e1fd5be8!2sSMK%20KARSA%20MULYA!5e0!3m2!1sid!2sid!4v1639312434719!5m2!1sid!2sid" width="100%" height="465" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
         <!-- </div> -->
     </section>
 
@@ -242,7 +253,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; <a href="<?php echo base_url();?>" target="_blank">SMK Karsa Mulya Palangka Raya</a> <?php echo date('Y'); ?> | IT Development
+                        Copyright &copy; <a href="<?php echo base_url(); ?>" target="_blank">SMK Karsa Mulya Palangka Raya</a> <?php echo date('Y'); ?> | IT Development
                     </div>
                 </div>
             </div>
@@ -274,4 +285,5 @@
     <script src="assets/js/freelancer.min.js"></script>
 
 </body>
+
 </html>
