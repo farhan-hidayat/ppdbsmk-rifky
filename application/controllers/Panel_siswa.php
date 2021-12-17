@@ -50,13 +50,13 @@ class Panel_siswa extends CI_Controller
 			$this->load->view('siswa/footer');
 
 			if (isset($_POST['btnupdate2'])) {
-				$config['upload_path']   = './files/';
+				$config['upload_path']   = './files/berkas/';
 				$config['allowed_types'] = 'jpg|png|jpeg';
 				$config['max_size']      = 5120;
 				$config['file_name']     = $ceks . 'Foto';
 				$config['overwrite']	 = true;
 
-				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
 
 				if ($this->upload->do_upload('foto')) {
 					$foto = $this->upload->data();
@@ -109,7 +109,7 @@ class Panel_siswa extends CI_Controller
 			$config['max_size']      = 5120;
 			$config['file_name']     = $this->input->post('judul');
 
-			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
 
 			if (isset($_POST['btnupdate2'])) {
 				$username 	= $this->input->post('username');

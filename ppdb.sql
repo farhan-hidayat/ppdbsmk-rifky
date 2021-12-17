@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Okt 2021 pada 15.42
+-- Waktu pembuatan: 16 Des 2021 pada 14.22
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 8.0.9
 
@@ -24,6 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tbl_berkas`
+--
+
+CREATE TABLE `tbl_berkas` (
+  `id_berkas` int(11) NOT NULL,
+  `siswa` varchar(20) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `akte` varchar(255) NOT NULL,
+  `s_akte` varchar(255) NOT NULL,
+  `kk` varchar(255) NOT NULL,
+  `s_kk` varchar(255) NOT NULL,
+  `fk` varchar(255) NOT NULL,
+  `s_fk` varchar(255) NOT NULL,
+  `skl` varchar(255) NOT NULL,
+  `s_skl` varchar(255) NOT NULL,
+  `ijazah` varchar(255) NOT NULL,
+  `s_ijazah` varchar(255) NOT NULL,
+  `pernyataan` varchar(255) NOT NULL,
+  `s_pernyataan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_berkas`
+--
+
+INSERT INTO `tbl_berkas` (`id_berkas`, `siswa`, `foto`, `akte`, `s_akte`, `kk`, `s_kk`, `fk`, `s_fk`, `skl`, `s_skl`, `ijazah`, `s_ijazah`, `pernyataan`, `s_pernyataan`) VALUES
+(1, 'PSB2021-12004', '', '', 'Belum Upload', '', 'Belum Upload', '', 'Belum Upload', '', 'Belum Upload', '', 'Belum Upload', '', 'Belum Upload');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tbl_jurusan`
 --
 
@@ -38,56 +69,9 @@ CREATE TABLE `tbl_jurusan` (
 --
 
 INSERT INTO `tbl_jurusan` (`id_jurusan`, `nama_jurusan`, `kuota`) VALUES
-(1, 'Multimedia', 70);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tbl_nilai_unbk`
---
-
-CREATE TABLE `tbl_nilai_unbk` (
-  `id_nilai_unbk` int(11) NOT NULL,
-  `mapel_unbk` varchar(100) DEFAULT NULL,
-  `nilai_unbk` int(10) DEFAULT NULL,
-  `no_pendaftaran` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tbl_nilai_unbk`
---
-
-INSERT INTO `tbl_nilai_unbk` (`id_nilai_unbk`, `mapel_unbk`, `nilai_unbk`, `no_pendaftaran`) VALUES
-(1, 'Ilmu Pengetahuan Alam (IPA)', 65, 'PSB2021-10001'),
-(2, 'Matematika', 65, 'PSB2021-10001'),
-(3, 'Bahasa Indonesia', 65, 'PSB2021-10001'),
-(4, 'Bahasa Inggris', 65, 'PSB2021-10001');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tbl_nilai_usbn`
---
-
-CREATE TABLE `tbl_nilai_usbn` (
-  `id_nilai_usbn` int(10) NOT NULL,
-  `mapel_usbn` varchar(100) DEFAULT NULL,
-  `nilai_usbn` varchar(100) DEFAULT NULL,
-  `no_pendaftaran` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tbl_nilai_usbn`
---
-
-INSERT INTO `tbl_nilai_usbn` (`id_nilai_usbn`, `mapel_usbn`, `nilai_usbn`, `no_pendaftaran`) VALUES
-(1, 'Pendidikan Agama', '65', 'PSB2021-10001'),
-(2, 'PKN', '65', 'PSB2021-10001'),
-(3, 'Bahasa Indonesia', '65', 'PSB2021-10001'),
-(4, 'Bahasa Inggris', '65', 'PSB2021-10001'),
-(5, 'Matematika', '65', 'PSB2021-10001'),
-(6, 'Ilmu Pengetahuan Alam (IPA)', '65', 'PSB2021-10001'),
-(7, 'Ilmu Pengetahuan Sosial (IPS)', '65', 'PSB2021-10001');
+(1, 'Multimedia', 70),
+(2, 'Bisnis', 70),
+(3, 'Otomotif', 70);
 
 -- --------------------------------------------------------
 
@@ -194,41 +178,13 @@ INSERT INTO `tbl_pengumuman` (`id_pengumuman`, `ket_pengumuman`, `tgl_pengumuman
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_rapor`
---
-
-CREATE TABLE `tbl_rapor` (
-  `id_rapor` int(10) NOT NULL,
-  `mapel` varchar(100) DEFAULT NULL,
-  `semester1` int(10) DEFAULT NULL,
-  `semester2` int(10) DEFAULT NULL,
-  `semester3` int(10) DEFAULT NULL,
-  `semester4` int(10) DEFAULT NULL,
-  `semester5` int(10) DEFAULT NULL,
-  `rata_rata_nilai` int(10) DEFAULT NULL,
-  `no_pendaftaran` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tbl_rapor`
---
-
-INSERT INTO `tbl_rapor` (`id_rapor`, `mapel`, `semester1`, `semester2`, `semester3`, `semester4`, `semester5`, `rata_rata_nilai`, `no_pendaftaran`) VALUES
-(1, 'Ilmu Pengetahuan Alam (IPA)', 65, 65, 65, 65, 65, 65, 'PSB2021-10001'),
-(2, 'Ilmu Pengetahuan Sosial (IPS)', 65, 65, 65, 65, 65, 65, 'PSB2021-10001'),
-(3, 'Matematika', 65, 65, 65, 65, 65, 65, 'PSB2021-10001'),
-(4, 'Bahasa Indonesia', 65, 65, 65, 65, 65, 65, 'PSB2021-10001'),
-(5, 'Bahasa Inggris', 65, 65, 65, 65, 65, 65, 'PSB2021-10001');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `tbl_siswa`
 --
 
 CREATE TABLE `tbl_siswa` (
   `id_siswa` int(100) NOT NULL,
   `no_pendaftaran` varchar(20) NOT NULL,
+  `jurusan` int(11) NOT NULL,
   `password` mediumtext DEFAULT NULL,
   `nis` varchar(30) DEFAULT NULL,
   `nisn` varchar(30) DEFAULT NULL,
@@ -262,8 +218,6 @@ CREATE TABLE `tbl_siswa` (
   `model_un` varchar(100) DEFAULT NULL,
   `alamat_sekolah` mediumtext DEFAULT NULL,
   `thn_lulus` year(4) DEFAULT NULL,
-  `rayonisasi` varchar(100) DEFAULT NULL,
-  `foto` mediumtext DEFAULT NULL,
   `tgl_siswa` datetime DEFAULT NULL,
   `status_verifikasi` varchar(30) DEFAULT NULL,
   `status_pendaftaran` varchar(20) DEFAULT NULL
@@ -273,8 +227,12 @@ CREATE TABLE `tbl_siswa` (
 -- Dumping data untuk tabel `tbl_siswa`
 --
 
-INSERT INTO `tbl_siswa` (`id_siswa`, `no_pendaftaran`, `password`, `nis`, `nisn`, `nik`, `nama_lengkap`, `jk`, `tempat_lahir`, `tgl_lahir`, `agama`, `status_keluarga`, `alamat_siswa`, `no_hp_siswa`, `nama_ayah`, `pdd_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `no_hp_ayah`, `nama_ibu`, `pdd_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `no_hp_ibu`, `nama_wali`, `pdd_wali`, `pekerjaan_wali`, `penghasilan_wali`, `no_hp_wali`, `npsn_sekolah`, `nama_sekolah`, `status_sekolah`, `model_un`, `alamat_sekolah`, `thn_lulus`, `rayonisasi`, `foto`, `tgl_siswa`, `status_verifikasi`, `status_pendaftaran`) VALUES
-(1, 'PSB2021-10001', '123456', '123456', '123456', '123456', 'siapa', 'Laki-Laki', 'pky', '29-04-1993', 'Islam', 'Anak Kandung', 'dddd', '024567', 'aaa', 'Tdk Sekolah', 'Buruh', '< 500rb', '0044545', 'bbbb', 'Tdk Sekolah', 'Ibu Rumah Tangga\r\n', '< 500rb', '045645', 'ccc', 'Tdk Sekolah', 'Buruh', '< 500rb', '045634', '123456', 'asdasd', 'NEGERI', 'UNBK', 'dfgdfg', 2020, 'Lintas Rayon', NULL, '2021-10-07 19:49:52', NULL, NULL);
+INSERT INTO `tbl_siswa` (`id_siswa`, `no_pendaftaran`, `jurusan`, `password`, `nis`, `nisn`, `nik`, `nama_lengkap`, `jk`, `tempat_lahir`, `tgl_lahir`, `agama`, `status_keluarga`, `alamat_siswa`, `no_hp_siswa`, `nama_ayah`, `pdd_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `no_hp_ayah`, `nama_ibu`, `pdd_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `no_hp_ibu`, `nama_wali`, `pdd_wali`, `pekerjaan_wali`, `penghasilan_wali`, `no_hp_wali`, `npsn_sekolah`, `nama_sekolah`, `status_sekolah`, `model_un`, `alamat_sekolah`, `thn_lulus`, `tgl_siswa`, `status_verifikasi`, `status_pendaftaran`) VALUES
+(1, 'PSB2021-10001', 1, '123456', '123456', '123456', '123456', 'siapa', 'Laki-Laki', 'pky', '29-04-1993', 'Islam', 'Anak Kandung', 'dddd', '024567', 'aaa', 'Tdk Sekolah', 'Buruh', '< 500rb', '0044545', 'bbbb', 'Tdk Sekolah', 'Ibu Rumah Tangga\r\n', '< 500rb', '045645', 'ccc', 'Tdk Sekolah', 'Buruh', '< 500rb', '045634', '123456', 'asdasd', 'NEGERI', 'UNBK', 'dfgdfg', 2020, '2021-10-07 19:49:52', NULL, NULL),
+(5, 'PSB2021-12003', 2, '123123', '123123', '123123', '123123', 'azdasdasd', 'Laki-Laki', 'asdasd', '01-01-1990', 'Kristen', 'Anak Angkat', 'asdasd', '0621651', 'asdasd', 'Tdk Sekolah', 'Buruh', '500-1jt', '123123', 'asdasd', 'Tdk Sekolah', 'Ibu Rumah Tangga\r\n', '< 500rb', '123123', '', '', '', '', '', '1111111', 'asdasd', 'NEGERI', 'UNBK', 'asdasd', 2021, '2021-12-09 15:57:00', NULL, NULL),
+(6, 'PSB2021-12004', 2, '123123', '123123', '123123', '123123', 'azdasdasd', 'Laki-Laki', 'asdasd', '01-01-1990', 'Kristen', 'Anak Angkat', 'asdasd', '0621651', 'asdasd', 'Tdk Sekolah', 'Buruh', '500-1jt', '123123', 'asdasd', 'Tdk Sekolah', 'Ibu Rumah Tangga\r\n', '< 500rb', '123123', '', '', '', '', '', '1111111', 'asdasd', 'NEGERI', 'UNBK', 'asdasd', 2021, '2021-12-09 15:57:41', NULL, NULL),
+(2, 'PSB2021-12101', 2, '0650065106510', '06356565065', '0650065106510', '0560650650', 'adfasdfsd', 'Laki-Laki', 'asdfasdf', '03-05-1994', 'Islam', 'Anak Kandung', 'asdasd', '13241234', 'adfdasfdsa', 'Tdk Sekolah', 'Buruh', '< 500rb', '3241324', 'dfghsdgfd', 'Tdk Sekolah', 'Ibu Rumah Tangga\r\n', '< 500rb', '2354324523', '', '', '', '', '', '23451324', 'cvxzvfsd', 'NEGERI', 'UNBK', 'dsfgsdfg', 2018, '2021-12-02 20:37:22', NULL, NULL),
+(3, 'PSB2021-12122', 1, '610651610', '6510651651', '610651610', '65165106', 'asdasd', 'Laki-Laki', 'asdasd', '01-01-1990', 'Islam', 'Anak Kandung', 'asdasd', '123123', 'asdasdswd', 'Tdk Sekolah', 'Buruh', '< 500rb', '123123', 'asdasd', 'Tdk Sekolah', 'Ibu Rumah Tangga\r\n', '< 500rb', '123123', '', '', '', '', '', '0635165165', 'asdasd', 'NEGERI', 'UNBK', 'asdasd', 2021, '2021-12-09 14:47:21', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -296,7 +254,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `nama_lengkap`, `level`, `tgl_daftar`) VALUES
-(1, 'admin', 'admin', 'Administrator', 'admin', '2018-04-12 00:00:00');
+(1, 'admin', 'admin', 'Administrator', 'Admin', '2018-04-12 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -336,31 +294,24 @@ CREATE TABLE `tbl_web` (
 --
 
 INSERT INTO `tbl_web` (`id_web`, `status_ppdb`, `tgl_diubah`, `tgl_tutup`) VALUES
-(1, 'buka', '2021-10-07', '2021-10-30');
+(1, 'buka', '2021-12-02', '2021-12-31');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indeks untuk tabel `tbl_berkas`
+--
+ALTER TABLE `tbl_berkas`
+  ADD PRIMARY KEY (`id_berkas`),
+  ADD KEY `siswa` (`siswa`);
+
+--
 -- Indeks untuk tabel `tbl_jurusan`
 --
 ALTER TABLE `tbl_jurusan`
   ADD PRIMARY KEY (`id_jurusan`);
-
---
--- Indeks untuk tabel `tbl_nilai_unbk`
---
-ALTER TABLE `tbl_nilai_unbk`
-  ADD PRIMARY KEY (`id_nilai_unbk`),
-  ADD KEY `no_pendaftaran` (`no_pendaftaran`);
-
---
--- Indeks untuk tabel `tbl_nilai_usbn`
---
-ALTER TABLE `tbl_nilai_usbn`
-  ADD PRIMARY KEY (`id_nilai_usbn`),
-  ADD KEY `no_pendaftaran` (`no_pendaftaran`);
 
 --
 -- Indeks untuk tabel `tbl_pdd`
@@ -387,18 +338,12 @@ ALTER TABLE `tbl_pengumuman`
   ADD PRIMARY KEY (`id_pengumuman`);
 
 --
--- Indeks untuk tabel `tbl_rapor`
---
-ALTER TABLE `tbl_rapor`
-  ADD PRIMARY KEY (`id_rapor`),
-  ADD KEY `no_pendaftaran` (`no_pendaftaran`);
-
---
 -- Indeks untuk tabel `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
   ADD PRIMARY KEY (`no_pendaftaran`),
-  ADD UNIQUE KEY `id_siswa` (`id_siswa`);
+  ADD UNIQUE KEY `id_siswa` (`id_siswa`),
+  ADD KEY `jurusan` (`jurusan`);
 
 --
 -- Indeks untuk tabel `tbl_user`
@@ -423,22 +368,16 @@ ALTER TABLE `tbl_web`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `tbl_berkas`
+--
+ALTER TABLE `tbl_berkas`
+  MODIFY `id_berkas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_jurusan`
 --
 ALTER TABLE `tbl_jurusan`
-  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `tbl_nilai_unbk`
---
-ALTER TABLE `tbl_nilai_unbk`
-  MODIFY `id_nilai_unbk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT untuk tabel `tbl_nilai_usbn`
---
-ALTER TABLE `tbl_nilai_usbn`
-  MODIFY `id_nilai_usbn` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pdd`
@@ -465,16 +404,10 @@ ALTER TABLE `tbl_pengumuman`
   MODIFY `id_pengumuman` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_rapor`
---
-ALTER TABLE `tbl_rapor`
-  MODIFY `id_rapor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT untuk tabel `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
-  MODIFY `id_siswa` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_siswa` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_user`
@@ -499,22 +432,16 @@ ALTER TABLE `tbl_web`
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_nilai_unbk`
+-- Ketidakleluasaan untuk tabel `tbl_berkas`
 --
-ALTER TABLE `tbl_nilai_unbk`
-  ADD CONSTRAINT `tbl_nilai_unbk_ibfk_1` FOREIGN KEY (`no_pendaftaran`) REFERENCES `tbl_siswa` (`no_pendaftaran`);
+ALTER TABLE `tbl_berkas`
+  ADD CONSTRAINT `tbl_berkas_ibfk_1` FOREIGN KEY (`siswa`) REFERENCES `tbl_siswa` (`no_pendaftaran`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_nilai_usbn`
+-- Ketidakleluasaan untuk tabel `tbl_siswa`
 --
-ALTER TABLE `tbl_nilai_usbn`
-  ADD CONSTRAINT `tbl_nilai_usbn_ibfk_1` FOREIGN KEY (`no_pendaftaran`) REFERENCES `tbl_siswa` (`no_pendaftaran`);
-
---
--- Ketidakleluasaan untuk tabel `tbl_rapor`
---
-ALTER TABLE `tbl_rapor`
-  ADD CONSTRAINT `tbl_rapor_ibfk_1` FOREIGN KEY (`no_pendaftaran`) REFERENCES `tbl_siswa` (`no_pendaftaran`);
+ALTER TABLE `tbl_siswa`
+  ADD CONSTRAINT `tbl_siswa_ibfk_1` FOREIGN KEY (`jurusan`) REFERENCES `tbl_jurusan` (`id_jurusan`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

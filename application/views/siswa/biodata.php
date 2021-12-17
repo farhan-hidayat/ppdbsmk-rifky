@@ -35,13 +35,13 @@ $user = $user->row(); ?>
         <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
           <div class="panel panel-flat">
             <div class="panel-body">
-              <input type="file" name="foto" id="foto" accept="image/png, image/jpeg, image/jpg, image/gif">
+              <input type="file" name="foto" id="foto" accept="image/png, image/jpeg, image/jpg">
               <center>
                 <?php
                 if ($berkas->foto != null) {
-                  echo "<img src='files/berkas/<?php echo $berkas->foto; ?>' alt='<?php echo $user->nama_lengkap; ?>' class='' width='176'>";
+                  echo "<img src='files/berkas/$berkas->foto' alt='$user->nama_lengkap' class='' width='176'>";
                 } else {
-                  echo "<img src='img/user.png' alt='<?php echo $user->nama_lengkap; ?>' class='' width='176'>";
+                  echo "<img src='img/user.png' alt='$user->nama_lengkap' class='' width='176'>";
                 }
                 ?>
               </center>
@@ -70,9 +70,15 @@ $user = $user->row(); ?>
                     <th>Foto Keluarga<input type="file" name="fk"></th>
                   </tr>
                   <tr>
-                    <td><b><?php echo $berkas->s_akte; ?></b></td>
-                    <td><b><?php echo $berkas->s_kk; ?></b></td>
-                    <td><b><?php echo $berkas->s_fk; ?></b></td>
+                    <td><b><?php echo $berkas->s_akte; ?></b>
+                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
+                    </td>
+                    <td><b><?php echo $berkas->s_kk; ?></b>
+                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
+                    </td>
+                    <td><b><?php echo $berkas->s_fk; ?></b>
+                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
+                    </td>
                   </tr>
                   <tr>
                     <th>SKL<input type="file" name="skl"></th>
@@ -80,9 +86,15 @@ $user = $user->row(); ?>
                     <th>Pernyataan<input type="file" name="pernyataan"></th>
                   </tr>
                   <tr>
-                    <td><b><?php echo $berkas->s_skl; ?></b></td>
-                    <td><b><?php echo $berkas->s_ijazah; ?></b></td>
-                    <td><b><?php echo $berkas->s_pernyataan; ?></b></td>
+                    <td><b><?php echo $berkas->s_skl; ?></b>
+                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
+                    </td>
+                    <td><b><?php echo $berkas->s_ijazah; ?></b>
+                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
+                    </td>
+                    <td><b><?php echo $berkas->s_pernyataan; ?></b>
+                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
+                    </td>
                   </tr>
                 </table>
               </div>

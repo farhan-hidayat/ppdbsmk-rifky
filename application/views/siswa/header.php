@@ -89,7 +89,7 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 					<a class="dropdown-toggle" data-toggle="dropdown">
 						<?php
 						if ($berkas->foto != null) {
-							echo "<img src='files/berkas/<?php echo $berkas->foto; ?>' alt='foto'>";
+							echo "<img src='files/berkas/$berkas->foto' alt='foto'>";
 						} else {
 							echo "<img src='img/user.png' alt='foto'>";
 						}
