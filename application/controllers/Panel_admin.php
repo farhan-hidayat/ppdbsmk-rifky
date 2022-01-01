@@ -545,6 +545,57 @@ class Panel_admin extends CI_Controller
 		}
 	}
 
+	public function verifikasi_peserta($id)
+	{
+		$ceks = $this->session->userdata('un@sman1_belitang');
+		if (!isset($ceks)) {
+			redirect('panel_admin/log_in');
+		}
+		$data['user']  			  = $this->db->get_where('tbl_user', "username='$ceks'");
+		$data['siswa']		= $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'");
+		$data['berkas']			= $this->db->get_where('tbl_berkas', "siswa='$id'");
+		$data['judul_web']	= "Biodata " . ucwords($data['siswa']->row()->nama_lengkap);
+
+		$this->load->view('admin/header', $data);
+		$this->load->view('admin/verifikasi/verif', $data);
+		$this->load->view('admin/footer');
+
+		if (isset($_POST['btn-simpan'])) {
+
+			$file = array(
+				's_akte'	=> $this->input->post('s_akte'),
+				's_kk'		=> $this->input->post('s_kk'),
+				's_fk'		=> $this->input->post('s_fk'),
+				's_skl'		=> $this->input->post('s_skl'),
+				's_ijazah'	=> $this->input->post('s_ijazah')
+			);
+
+			$this->db->update('tbl_berkas', $file, array('siswa' => $id));
+			$this->session->set_flashdata(
+				'msg2',
+				'
+											<div class="alert alert-success alert-dismissible" role="alert">
+												 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+													 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+												 </button>
+												 <strong>Sukses!</strong> Verifikasi berhasil diperbaharui.
+											</div>'
+			);
+			redirect('panel_admin/verifikasi');
+		} else {
+			$this->session->set_flashdata(
+				'msg2',
+				'
+										<div class="alert alert-warning alert-dismissible" role="alert">
+											 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+											 </button>
+											 <strong>Gagal!</strong> Verifikasi gagal diperbaharui.
+										</div>'
+			);
+		}
+	}
+
 	public function verifikasi_cetak($id = '')
 	{
 		$ceks = $this->session->userdata('un@sman1_belitang');
@@ -605,21 +656,33 @@ class Panel_admin extends CI_Controller
 
 			if ($aksi == 'lulus') {
 				$data = array(
-					'status_pendaftaran'	=> 'lulus'
+					'status_pendaftaran'	=> 'lulus',
 				);
 				$this->db->update('tbl_siswa', $data, array('no_pendaftaran' => "$id"));
+				$data1 = array(
+					's_pernyataan'	=> 'Terverifikasi'
+				);
+				$this->db->update('tbl_berkas', $data1, array('siswa' => "$id"));
 				redirect('panel_admin/set_pengumuman');
 			} elseif ($aksi == 'tdk_lulus') {
 				$data = array(
 					'status_pendaftaran'	=> 'tidak lulus'
 				);
 				$this->db->update('tbl_siswa', $data, array('no_pendaftaran' => "$id"));
+				$data1 = array(
+					's_pernyataan'	=> 'Tidak Sesuai'
+				);
+				$this->db->update('tbl_berkas', $data1, array('siswa' => "$id"));
 				redirect('panel_admin/set_pengumuman');
 			} elseif ($aksi == 'batal') {
 				$data = array(
 					'status_pendaftaran'	=> null
 				);
 				$this->db->update('tbl_siswa', $data, array('no_pendaftaran' => "$id"));
+				$data1 = array(
+					's_pernyataan'	=> 'Sedang Diproses'
+				);
+				$this->db->update('tbl_berkas', $data1, array('siswa' => "$id"));
 				redirect('panel_admin/set_pengumuman');
 			} elseif ($aksi == 'thn') {
 				$thn = $id;
@@ -628,7 +691,7 @@ class Panel_admin extends CI_Controller
 			}
 			$this->db->like('tgl_siswa', "$thn", 'after');
 			$this->db->order_by('id_siswa', 'DESC');
-			$data['v_siswa']  		= $this->db->query("SELECT * FROM tbl_siswa,tbl_jurusan WHERE jurusan=id_jurusan order by id_siswa desc");
+			$data['v_siswa']  		= $this->db->query("SELECT * FROM tbl_siswa,tbl_jurusan, tbl_berkas WHERE jurusan=id_jurusan AND siswa=no_pendaftaran order by id_siswa desc");
 			$data['v_thn']				= $thn;
 
 			$this->load->view('admin/header', $data);

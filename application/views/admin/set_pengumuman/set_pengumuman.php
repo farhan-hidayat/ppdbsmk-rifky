@@ -18,39 +18,42 @@
             </ul>
           </div>
 
-                    <br>
-                    <a href="panel_admin/edit_ket" class="btn btn-primary">Edit Keterangan Lulus</a>
-                    <div class="col-md-3" style="float:right;margin-right:25px;">
-                      <div class="input-group">
-                        <div class="input-group-addon"><i class="icon-calendar22"></i></div>
-                        <select class="form-control" name="thn" onchange="thn()">
-                          <?php for ($i=date('Y'); $i >=2018 ; $i--) {?>
-                            <option value="<?php echo $i; ?>" <?php if($v_thn==$i){echo "selected";} ?>>Tahun <?php echo $i; ?></option>
-                          <?php } ?>
-                        </select>
-                      </div>
-                    </div>
+          <br>
+          <a href="panel_admin/edit_ket" class="btn btn-primary">Edit Keterangan Lulus</a>
+          <div class="col-md-3" style="float:right;margin-right:25px;">
+            <div class="input-group">
+              <div class="input-group-addon"><i class="icon-calendar22"></i></div>
+              <select class="form-control" name="thn" onchange="thn()">
+                <?php for ($i = date('Y'); $i >= 2018; $i--) { ?>
+                  <option value="<?php echo $i; ?>" <?php if ($v_thn == $i) {
+                                                      echo "selected";
+                                                    } ?>>Tahun <?php echo $i; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
 
         </div>
         <div class="table-responsive">
-        <table class="table datatable-basic table-bordered" width="100%">
-          <thead>
-            <tr>
-              <th width="30px;">No.</th>
-              <th>No. Pendaftaran</th>
-              <th>NIS</th>
-              <th>NISN</th>
-              <th>NIK</th>
-              <th>Nama Lengkap</th>
-              <th>Jurusan</th>
-              <th>Status Lulus</th>
-              <th class="text-center" width="220">Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
+          <table class="table datatable-basic table-bordered" width="100%">
+            <thead>
+              <tr>
+                <th width="30px;">No.</th>
+                <th>No. Pendaftaran</th>
+                <th>NIS</th>
+                <th>NISN</th>
+                <th>NIK</th>
+                <th>Nama Lengkap</th>
+                <th>Jurusan</th>
+                <th>Berkas Persyaratan</th>
+                <th>Status Lulus</th>
+                <th class="text-center" width="220">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
               <?php
               $no = 1;
-              foreach ($v_siswa->result() as $baris) {?>
+              foreach ($v_siswa->result() as $baris) { ?>
                 <tr>
                   <td><?php echo $no++; ?></td>
                   <td><?php echo $baris->no_pendaftaran; ?></td>
@@ -60,42 +63,51 @@
                   <td><?php echo $baris->nama_lengkap; ?></td>
                   <td><?php echo $baris->nama_jurusan; ?></td>
                   <td align="center">
-                    <?php if ($baris->status_pendaftaran == 'lulus') {?>
+                    <?php if ($baris->s_pernyataan == 'Terverifikasi') { ?>
+                      <a href="files/berkas/<?php echo $baris->pernyataan; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
+                    <?php } elseif ($baris->s_pernyataan == 'Sedang Diproses') { ?>
+                      <a href="files/berkas/<?php echo $baris->pernyataan; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diproses"> Sedang Diproses</a>
+                    <?php } elseif ($baris->s_pernyataan == 'Tidak Sesuai') { ?>
+                      <a href="files/berkas/<?php echo $baris->pernyataan; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
+                    <?php } else { ?>
+                      <label class="label label-danger">Belum Upload</label>
+                    <?php } ?>
+                  </td>
+                  <td align="center">
+                    <?php if ($baris->status_pendaftaran == 'lulus') { ?>
                       <label class="label label-success">Lulus</label>
-                    <?php }elseif ($baris->status_pendaftaran == 'tidak lulus') {?>
+                    <?php } elseif ($baris->status_pendaftaran == 'tidak lulus') { ?>
                       <label class="label label-danger">Tidak Lulus</label>
-                    <?php }else{ ?>
+                    <?php } else { ?>
                       <label class="label label-warning">Proses</label>
                     <?php } ?>
                   </td>
                   <td align="center">
-                    <?php if ($baris->status_pendaftaran == '') {?>
+                    <?php if ($baris->status_pendaftaran == '') { ?>
                       <a href="panel_admin/set_pengumuman/tdk_lulus/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-warning btn-xs" title="Tidak Lulus" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-cross3"></i> Tidak Lulus</a>
                       <a href="panel_admin/set_pengumuman/lulus/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-success btn-xs" title="Lulus" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-checkmark4"></i> Lulus</a>
-                    <?php }else{ ?>
+                    <?php } else { ?>
                       <a href="panel_admin/set_pengumuman/batal/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-danger btn-xs" title="Batalkan" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-cross3"></i> Batal</a>
                     <?php } ?>
                   </td>
                 </tr>
               <?php
               } ?>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
         </div>
       </div>
       <!-- /basic datatable -->
     </div>
     <!-- /dashboard content -->
 
-<script type="text/javascript">
-  function thn()
-  {
-    var thn = $('[name="thn"]').val();
-      window.location = "panel_admin/set_pengumuman/thn/"+thn;
-  }
+    <script type="text/javascript">
+      function thn() {
+        var thn = $('[name="thn"]').val();
+        window.location = "panel_admin/set_pengumuman/thn/" + thn;
+      }
 
-  $('[name="thn"]').select2({
-      placeholder: "- Tahun -"
-  });
-
-</script>
+      $('[name="thn"]').select2({
+        placeholder: "- Tahun -"
+      });
+    </script>

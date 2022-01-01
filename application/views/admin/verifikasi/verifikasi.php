@@ -3,7 +3,7 @@
   <!-- Content area -->
   <div class="content">
     <?php
-    echo $this->session->flashdata('msg');
+    echo $this->session->flashdata('msg2');
     ?>
     <!-- Dashboard content -->
     <div class="row">
@@ -69,7 +69,7 @@
                     <?php } ?>
                   </td>
                   <td align="center">
-                    <a href="panel_admin/verifikasi_cetak/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-default btn-xs" title="Cetak Verifikasi" target="_blank"><i class="icon-printer2"></i></a>
+                    <a href="panel_admin/verifikasi_peserta/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-default btn-xs" title="Cetak Verifikasi" target="_blank"><i class="icon-folder"></i></a>
                     <?php if ($baris->status_verifikasi == 0) { ?>
                       <a href="panel_admin/verifikasi/cek/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-info btn-xs" title="Verifikasi" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-checkmark4"></i></a>
                     <?php } else { ?>

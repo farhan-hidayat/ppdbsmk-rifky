@@ -57,51 +57,53 @@ $user = $user->row(); ?>
         </form>
       </div>
 
-      <div class="col-md-9">
-        <div class="panel panel-flat">
-          <div class="panel-body">
-            <fieldset class="content-group">
-              <legend class="text-bold"><i class="icon-folder"></i> Berkas</legend>
-              <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                  <tr>
-                    <th>Akte<input type="file" name="akte"></th>
-                    <th>KK<input type="file" name="kk"></th>
-                    <th>Foto Keluarga<input type="file" name="fk"></th>
-                  </tr>
-                  <tr>
-                    <td><b><?php echo $berkas->s_akte; ?></b>
-                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
-                    </td>
-                    <td><b><?php echo $berkas->s_kk; ?></b>
-                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
-                    </td>
-                    <td><b><?php echo $berkas->s_fk; ?></b>
-                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>SKL<input type="file" name="skl"></th>
-                    <th>Ijazah<input type="file" name="ijazah"></th>
-                    <th>Pernyataan<input type="file" name="pernyataan"></th>
-                  </tr>
-                  <tr>
-                    <td><b><?php echo $berkas->s_skl; ?></b>
-                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
-                    </td>
-                    <td><b><?php echo $berkas->s_ijazah; ?></b>
-                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
-                    </td>
-                    <td><b><?php echo $berkas->s_pernyataan; ?></b>
-                      <button type="submit" name="btnupdate2" class="btn btn-primary" style="float:right;">Simpan</button>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </fieldset>
+      <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+        <div class="col-md-9">
+          <div class="panel panel-flat">
+            <div class="panel-body">
+              <fieldset class="content-group">
+                <legend class="text-bold"><i class="icon-folder"></i> Berkas</legend>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped">
+                    <tr>
+                      <th>Akte<input type="file" name="akte"></th>
+                      <th>KK<input type="file" name="kk"></th>
+                      <th>Foto Keluarga<input type="file" name="fk"></th>
+                    </tr>
+                    <tr>
+                      <td><a href="files/berkas/<?php echo $berkas->akte; ?>" target="_blank"><b><?php echo $berkas->s_akte; ?></b></a>
+                        <button type="submit" name="btn-akte" class="btn btn-primary" style="float:right;">Simpan</button>
+                      </td>
+                      <td><a href="files/berkas/<?php echo $berkas->kk; ?>" target="_blank"><b><?php echo $berkas->s_kk; ?></b></a>
+                        <button type="submit" name="btn-kk" class="btn btn-primary" style="float:right;">Simpan</button>
+                      </td>
+                      <td><a href="files/berkas/<?php echo $berkas->fk; ?>" target="_blank"><b><?php echo $berkas->s_fk; ?></b></a>
+                        <button type="submit" name="btn-fk" class="btn btn-primary" style="float:right;">Simpan</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>SKL<input type="file" name="skl"></th>
+                      <th>Ijazah<input type="file" name="ijazah"></th>
+                      <th>Pernyataan<input type="file" name="pernyataan"></th>
+                    </tr>
+                    <tr>
+                      <td><a href="files/berkas/<?php echo $berkas->skl; ?>" target="_blank"><b><?php echo $berkas->s_skl; ?></b></a>
+                        <button type="submit" name="btn-skl" class="btn btn-primary" style="float:right;">Simpan</button>
+                      </td>
+                      <td><a href="files/berkas/<?php echo $berkas->ijazah; ?>" target="_blank"><b><?php echo $berkas->s_ijazah; ?></b></a>
+                        <button type="submit" name="btn-ijazah" class="btn btn-primary" style="float:right;">Simpan</button>
+                      </td>
+                      <td><a href="files/berkas/<?php echo $berkas->pernyataan; ?>" target="_blank"><b><?php echo $berkas->s_pernyataan; ?></b></a>
+                        <button type="submit" name="btn-pernyataan" class="btn btn-primary" style="float:right;">Simpan</button>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </fieldset>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
 
       <div class="col-md-12">
         <div class="col-md-6">

@@ -53,7 +53,7 @@ class Panel_siswa extends CI_Controller
 				$config['upload_path']   = './files/berkas/';
 				$config['allowed_types'] = 'jpg|png|jpeg';
 				$config['max_size']      = 5120;
-				$config['file_name']     = $ceks . 'Foto';
+				$config['file_name']     = $ceks . '-Foto';
 				$config['overwrite']	 = true;
 
 				$this->upload->initialize($config);
@@ -75,7 +75,6 @@ class Panel_siswa extends CI_Controller
 													 <strong>Sukses!</strong> Foto berhasil diperbaharui.
 												</div>'
 					);
-					$this->db->last_query();
 					redirect('panel_siswa/biodata');
 				} else {
 					$this->session->set_flashdata(
@@ -86,6 +85,264 @@ class Panel_siswa extends CI_Controller
 														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
 													 </button>
 													 <strong>Gagal!</strong> Foto gagal diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				}
+			}
+
+			if (isset($_POST['btn-akte'])) {
+				$config['upload_path']   = './files/berkas/';
+				$config['allowed_types'] = 'jpg|png|jpeg';
+				$config['max_size']      = 5120;
+				$config['file_name']     = $ceks . '-akte';
+				$config['overwrite']	 = true;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('akte')) {
+					$akte = $this->upload->data();
+					$file = array(
+						'akte'	=> $akte['file_name'],
+						's_akte' => 'Sedang Diproses'
+					);
+
+					$this->db->update('tbl_berkas', $file, array('siswa' => $ceks));
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-success alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Sukses!</strong> Akte berhasil diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				} else {
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-warning alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Gagal!</strong> Akte gagal diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				}
+			}
+
+			if (isset($_POST['btn-kk'])) {
+				$config['upload_path']   = './files/berkas/';
+				$config['allowed_types'] = 'jpg|png|jpeg';
+				$config['max_size']      = 5120;
+				$config['file_name']     = $ceks . '-kk';
+				$config['overwrite']	 = true;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('kk')) {
+					$kk = $this->upload->data();
+					$file = array(
+						'kk'	=> $kk['file_name'],
+						's_kk' => 'Sedang Diproses'
+					);
+
+					$this->db->update('tbl_berkas', $file, array('siswa' => $ceks));
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-success alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Sukses!</strong> KK berhasil diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				} else {
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-warning alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Gagal!</strong> KK gagal diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				}
+			}
+
+			if (isset($_POST['btn-fk'])) {
+				$config['upload_path']   = './files/berkas/';
+				$config['allowed_types'] = 'jpg|png|jpeg';
+				$config['max_size']      = 5120;
+				$config['file_name']     = $ceks . '-fk';
+				$config['overwrite']	 = true;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('fk')) {
+					$fk = $this->upload->data();
+					$file = array(
+						'fk'	=> $fk['file_name'],
+						's_fk' => 'Sedang Diproses'
+					);
+
+					$this->db->update('tbl_berkas', $file, array('siswa' => $ceks));
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-success alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Sukses!</strong> Foto Keluarga berhasil diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				} else {
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-warning alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Gagal!</strong> Foto Keluarga gagal diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				}
+			}
+
+			if (isset($_POST['btn-skl'])) {
+				$config['upload_path']   = './files/berkas/';
+				$config['allowed_types'] = 'jpg|png|jpeg';
+				$config['max_size']      = 5120;
+				$config['file_name']     = $ceks . '-skl';
+				$config['overwrite']	 = true;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('skl')) {
+					$skl = $this->upload->data();
+					$file = array(
+						'skl'	=> $skl['file_name'],
+						's_skl' => 'Sedang Diproses'
+					);
+
+					$this->db->update('tbl_berkas', $file, array('siswa' => $ceks));
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-success alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Sukses!</strong> SKL berhasil diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				} else {
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-warning alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Gagal!</strong> SKL gagal diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				}
+			}
+
+			if (isset($_POST['btn-ijazah'])) {
+				$config['upload_path']   = './files/berkas/';
+				$config['allowed_types'] = 'jpg|png|jpeg';
+				$config['max_size']      = 5120;
+				$config['file_name']     = $ceks . '-ijazah';
+				$config['overwrite']	 = true;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('ijazah')) {
+					$ijazah = $this->upload->data();
+					$file = array(
+						'ijazah'	=> $ijazah['file_name'],
+						's_ijazah' => 'Sedang Diproses'
+					);
+
+					$this->db->update('tbl_berkas', $file, array('siswa' => $ceks));
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-success alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Sukses!</strong> Ijazah berhasil diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				} else {
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-warning alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Gagal!</strong> Ijazah gagal diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				}
+			}
+
+			if (isset($_POST['btn-pernyataan'])) {
+				$config['upload_path']   = './files/berkas/';
+				$config['allowed_types'] = 'jpg|png|jpeg';
+				$config['max_size']      = 5120;
+				$config['file_name']     = $ceks . '-pernyataan';
+				$config['overwrite']	 = true;
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('pernyataan')) {
+					$pernyataan = $this->upload->data();
+					$file = array(
+						'pernyataan'	=> $pernyataan['file_name'],
+						's_pernyataan' => 'Sedang Diproses'
+					);
+
+					$this->db->update('tbl_berkas', $file, array('siswa' => $ceks));
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-success alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Sukses!</strong> Pernyataan berhasil diperbaharui.
+												</div>'
+					);
+					redirect('panel_siswa/biodata');
+				} else {
+					$this->session->set_flashdata(
+						'msg2',
+						'
+												<div class="alert alert-warning alert-dismissible" role="alert">
+													 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+													 </button>
+													 <strong>Gagal!</strong> Pernyataan gagal diperbaharui.
 												</div>'
 					);
 					redirect('panel_siswa/biodata');
