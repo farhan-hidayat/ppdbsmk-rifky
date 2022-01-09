@@ -107,33 +107,33 @@ $user = $siswa->row(); ?>
                                         <tr>
                                             <td align="center">
                                                 <?php if ($berkas->s_akte == 'Terverifikasi') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->akte; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
-                                                <?php } elseif ($berkas->s_akte == 'Sedang Diperoses') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->akte; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diperoses"> Sedang Diperoses</a>
+                                                    <a href="files/berkas/<?php echo $berkas->akte; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
+                                                <?php } elseif ($berkas->s_akte == 'Sedang Diproses') { ?>
+                                                    <a href="files/berkas/<?php echo $berkas->akte; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diproses"> Sedang Diproses</a>
                                                 <?php } elseif ($berkas->s_akte == 'Tidak Sesuai') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->akte; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
+                                                    <a href="files/berkas/<?php echo $berkas->akte; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
                                                 <?php } else { ?>
                                                     <label class="label label-danger">Belum Upload</label>
                                                 <?php } ?>
                                             </td>
                                             <td align="center">
                                                 <?php if ($berkas->s_kk == 'Terverifikasi') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->kk; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
-                                                <?php } elseif ($berkas->s_kk == 'Sedang Diperoses') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->kk; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diperoses"> Sedang Diperoses</a>
+                                                    <a href="files/berkas/<?php echo $berkas->kk; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
+                                                <?php } elseif ($berkas->s_kk == 'Sedang Diproses') { ?>
+                                                    <a href="files/berkas/<?php echo $berkas->kk; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diproses"> Sedang Diproses</a>
                                                 <?php } elseif ($berkas->s_kk == 'Tidak Sesuai') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->kk; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
+                                                    <a href="files/berkas/<?php echo $berkas->kk; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
                                                 <?php } else { ?>
                                                     <label class="label label-danger">Belum Upload</label>
                                                 <?php } ?>
                                             </td>
                                             <td align="center">
                                                 <?php if ($berkas->s_fk == 'Terverifikasi') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->fk; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
-                                                <?php } elseif ($berkas->s_fk == 'Sedang Diperoses') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->fk; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diperoses"> Sedang Diperoses</a>
+                                                    <a href="files/berkas/<?php echo $berkas->fk; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
+                                                <?php } elseif ($berkas->s_fk == 'Sedang Diproses') { ?>
+                                                    <a href="files/berkas/<?php echo $berkas->fk; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diproses"> Sedang Diproses</a>
                                                 <?php } elseif ($berkas->s_fk == 'Tidak Sesuai') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->fk; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
+                                                    <a href="files/berkas/<?php echo $berkas->fk; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
                                                 <?php } else { ?>
                                                     <label class="label label-danger">Belum Upload</label>
                                                 <?php } ?>
@@ -171,22 +171,22 @@ $user = $siswa->row(); ?>
                                         <tr>
                                             <td align="center">
                                                 <?php if ($berkas->s_skl == 'Terverifikasi') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->skl; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
-                                                <?php } elseif ($berkas->s_skl == 'Sedang Diperoses') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->skl; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diperoses"> Sedang Diperoses</a>
+                                                    <a href="files/berkas/<?php echo $berkas->skl; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
+                                                <?php } elseif ($berkas->s_skl == 'Sedang Diproses') { ?>
+                                                    <a href="files/berkas/<?php echo $berkas->skl; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diproses"> Sedang Diproses</a>
                                                 <?php } elseif ($berkas->s_skl == 'Tidak Sesuai') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->skl; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
+                                                    <a href="files/berkas/<?php echo $berkas->skl; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
                                                 <?php } else { ?>
                                                     <label class="label label-danger">Belum Upload</label>
                                                 <?php } ?>
                                             </td>
                                             <td align="center">
                                                 <?php if ($berkas->s_ijazah == 'Terverifikasi') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->ijazah; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
-                                                <?php } elseif ($berkas->s_ijazah == 'Sedang Diperoses') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->ijazah; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diperoses"> Sedang Diperoses</a>
+                                                    <a href="files/berkas/<?php echo $berkas->ijazah; ?>" target="_blank" class="btn btn-success btn-xs" title="Terverifikasi"> Terverifikasi</a>
+                                                <?php } elseif ($berkas->s_ijazah == 'Sedang Diproses') { ?>
+                                                    <a href="files/berkas/<?php echo $berkas->ijazah; ?>" target="_blank" class="btn btn-warning btn-xs" title="Sedang Diproses"> Sedang Diproses</a>
                                                 <?php } elseif ($berkas->s_ijazah == 'Tidak Sesuai') { ?>
-                                                    <a href="files/berkas/<?php echo $baris->ijazah; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
+                                                    <a href="files/berkas/<?php echo $berkas->ijazah; ?>" target="_blank" class="btn btn-warning btn-xs" title="Tidak Sesuai"> Tidak Sesuai</a>
                                                 <?php } else { ?>
                                                     <label class="label label-danger">Belum Upload</label>
                                                 <?php } ?>
