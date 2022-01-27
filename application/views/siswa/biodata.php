@@ -221,7 +221,7 @@ $user = $user->row(); ?>
       </div>
 
       <div class="col-md-12">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="panel panel-flat">
             <div class="panel-body">
               <fieldset class="content-group">
@@ -260,7 +260,7 @@ $user = $user->row(); ?>
           </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="panel panel-flat">
             <div class="panel-body">
               <fieldset class="content-group">
@@ -291,45 +291,6 @@ $user = $user->row(); ?>
                       <th>No. Handphone</th>
                       <th>:</th>
                       <td><?php echo $user->no_hp_ibu; ?></td>
-                    </tr>
-                  </table>
-                </div>
-              </fieldset>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="panel panel-flat">
-            <div class="panel-body">
-              <fieldset class="content-group">
-                <legend class="text-bold"><i class="icon-user"></i> Data Wali</legend>
-                <div class="table-responsive">
-                  <table class="table table-bordered table-striped">
-                    <tr>
-                      <th width="20%">Nama Lengkap</th>
-                      <th width="1%">:</th>
-                      <td><?php echo ucwords($user->nama_wali); ?></td>
-                    </tr>
-                    <tr>
-                      <th>Pendidikan</th>
-                      <th>:</th>
-                      <td><?php echo $user->pdd_wali; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Pekerjaan</th>
-                      <th>:</th>
-                      <td><?php echo $user->pekerjaan_wali; ?></td>
-                    </tr>
-                    <tr>
-                      <th>Penghasilan</th>
-                      <th>:</th>
-                      <td><?php echo $user->penghasilan_wali; ?></td>
-                    </tr>
-                    <tr>
-                      <th>No. Handphone</th>
-                      <th>:</th>
-                      <td><?php echo $user->no_hp_wali; ?></td>
                     </tr>
                   </table>
                 </div>

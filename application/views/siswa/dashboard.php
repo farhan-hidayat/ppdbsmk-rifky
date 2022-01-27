@@ -92,8 +92,6 @@ $tgl = date('m-Y');
               <!-- /current server load -->
             </div>
 
-
-
             <div class="col-lg-3">
               <!-- Current server load -->
               <center>
@@ -107,6 +105,26 @@ $tgl = date('m-Y');
                         <i class="icon-file-download2" style="font-size:200px;"></i>
                       </h1>
                       Download Panduan
+                    </div>
+                  </div>
+                </a>
+              </center>
+              <!-- /current server load -->
+            </div>
+
+            <div class="col-lg-3">
+              <!-- Current server load -->
+              <center>
+                <a href="#">
+                  <div class="panel bg-green">
+                    <div class="panel-body">
+                      <div class="heading-elements">
+                        <span class="heading-text"></span>
+                      </div>
+                      <h1 class="no-margin">
+                        <i class="icon-file" style="font-size:200px;"></i>
+                      </h1>
+                      Jadwal Wawancara
                     </div>
                   </div>
                 </a>

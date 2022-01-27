@@ -411,15 +411,6 @@ class Panel_siswa extends CI_Controller
 
 		$data['thn_ppdb'] 	= date('Y', strtotime($data['user']->tgl_siswa));
 
-		$this->db->select_sum('rata_rata_nilai');
-		$data['nilai_rapor'] 	= $this->db->get_where('tbl_rapor', "no_pendaftaran='$ceks'")->row()->rata_rata_nilai / 5;
-
-		$this->db->select_sum('nilai_usbn');
-		$data['nilai_usbn'] 	= $this->db->get_where('tbl_nilai_usbn', "no_pendaftaran='$ceks'")->row()->nilai_usbn / 7;
-
-		$this->db->select_sum('nilai_unbk');
-		$data['nilai_unbk'] 	= $this->db->get_where('tbl_nilai_unbk', "no_pendaftaran='$ceks'")->row()->nilai_unbk / 4;
-
 		$this->load->view('siswa/cetak', $data);
 	}
 
