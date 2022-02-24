@@ -644,7 +644,38 @@ class Panel_admin extends CI_Controller
 		}
 	}
 
-
+	public function register(){
+		//pengaturan email
+		$this->load->library('email');//panggil library email codeigniter
+		$config = array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'farhanarchman@gmail.com',//alamat email gmail
+			'smtp_pass' => 'Kt5pH5BFTcmc115096',//password email 
+			'mailtype' => 'html',
+			'charset' => 'iso-8859-1',
+			'wordwrap' => TRUE
+		);
+		$message = "Hello World, this is test email by codeigniter";//ini adalah isi/body email
+		$email = 'penerima@gmail.com';//email penerima
+	
+		$this->email->initialize($config);
+		$this->email->set_newline("\r\n");
+		$this->email->from($config['smtp_user']);
+		$this->email->to($email);
+		$this->email->subject('Pengumuman Kelulusan');//subjek email
+		$this->email->message($message);
+		
+		//proses kirim email
+		if($this->email->send()){
+			$this->session->set_flashdata('message','Sukses kirim email');
+		}
+		else{
+			$this->session->set_flashdata('message', $this->email->print_debugger());
+		}
+	}
+	
 	public function set_pengumuman($aksi = '', $id = '')
 	{
 		$ceks = $this->session->userdata('un@sman1_belitang');
@@ -654,6 +685,19 @@ class Panel_admin extends CI_Controller
 			$data['user']  			  = $this->db->get_where('tbl_user', "username='$ceks'");
 			$data['judul_web'] 		= "Setting Pengumuman";
 
+			$config = array(
+				'mailtype'  => 'html',
+				'charset'   => 'utf-8',
+				'protocol'  => 'smtp',
+				'smtp_host' => 'ssl://smtp.gmail.com',
+				'smtp_user' => 'farhanarchman@gmail.com',  // Email gmail
+				'smtp_pass'   => 'Kt5pH5BFTcmc115096',  // Password gmail
+				'smtp_port'   => "465",
+				'smtp_timeout'=> "400",
+				'crlf'    => "\r\n",
+				'newline' => "\r\n",
+				'wordwrap' => TRUE
+			);
 			if ($aksi == 'lulus') {
 				$data = array(
 					'status_pendaftaran'	=> 'lulus',
@@ -663,6 +707,25 @@ class Panel_admin extends CI_Controller
 					's_pernyataan'	=> 'Terverifikasi'
 				);
 				$this->db->update('tbl_berkas', $data1, array('siswa' => "$id"));
+
+				$em = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
+				$email = $em->email; 
+					$isi = $this->db->get_where('tbl_pengumuman', "id_pengumuman='1'")->row();
+					$message = $isi->ket_pengumuman;//ini adalah isi/body email
+					$this->email->initialize($config);
+					$this->email->from($config['smtp_user']);
+					$this->email->to($email);//email penerima
+					$this->email->subject('Pengumuman Kelulusan');//subjek email
+					$this->email->message("Lulus");
+				
+				//proses kirim email
+				if($this->email->send()){
+					$this->session->set_flashdata('msg','Sukses kirim email');
+				}
+				else{
+					$this->session->set_flashdata('msg', $this->email->print_debugger());
+				}
+
 				redirect('panel_admin/set_pengumuman');
 			} elseif ($aksi == 'tdk_lulus') {
 				$data = array(
@@ -673,6 +736,27 @@ class Panel_admin extends CI_Controller
 					's_pernyataan'	=> 'Tidak Sesuai'
 				);
 				$this->db->update('tbl_berkas', $data1, array('siswa' => "$id"));
+
+				$em = $this->db->get_where('tbl_user', "username='$ceks'");
+				foreach ($em as $key ) {
+					$isi2 = $this->db->get_where('tbl_pengumuman', "id_pengumuman='2'")->row();
+					$message2 = $isi2->ket_pengumuman;//ini adalah isi/body email
+					$this->email->initialize($config);
+					$this->email->set_newline("\r\n");
+					$this->email->from($config['smtp_user']);
+					$this->email->to($key->email);
+					$this->email->subject('Pengumuman Kelulusan');//subjek email
+					$this->email->message($message2);
+				}
+				
+				//proses kirim email
+				if($this->email->send()){
+					$this->session->set_flashdata('message','Sukses kirim email');
+				}
+				else{
+					$this->session->set_flashdata('message', $this->email->print_debugger());
+				}
+		
 				redirect('panel_admin/set_pengumuman');
 			} elseif ($aksi == 'batal') {
 				$data = array(
@@ -720,6 +804,42 @@ class Panel_admin extends CI_Controller
 					'ket_pengumuman'	=> $this->input->post('ket_pengumuman')
 				);
 				$this->db->update('tbl_pengumuman', $data, array('id_pengumuman' => "1"));
+
+				$this->session->set_flashdata(
+					'msg',
+					'
+							<div class="alert alert-success alert-dismissible" role="alert">
+								 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+								 </button>
+								 <strong>Sukses!</strong> Keterangan Pengumuman berhasil diperbarui.
+							</div>'
+				);
+				redirect('panel_admin/set_pengumuman');
+			}
+		}
+	}
+
+	public function edit_ket2($aksi = '', $id = '')
+	{
+		$ceks = $this->session->userdata('un@sman1_belitang');
+		if (!isset($ceks)) {
+			redirect('panel_admin/log_in');
+		} else {
+			$data['user']  			  = $this->db->get_where('tbl_user', "username='$ceks'");
+			$data['judul_web'] 		= "Edit Keterangan Tidak Lulus";
+
+			$data['v_ket']	  		= $this->db->get_where('tbl_pengumuman', "id_pengumuman='2'")->row();
+
+			$this->load->view('admin/header', $data);
+			$this->load->view('admin/set_pengumuman/set_keterangan', $data);
+			$this->load->view('admin/footer');
+
+			if (isset($_POST['btnupdate'])) {
+				$data = array(
+					'ket_pengumuman'	=> $this->input->post('ket_pengumuman')
+				);
+				$this->db->update('tbl_pengumuman', $data, array('id_pengumuman' => "2"));
 
 				$this->session->set_flashdata(
 					'msg',

@@ -19,7 +19,8 @@
           </div>
 
           <br>
-          <a href="panel_admin/edit_ket" class="btn btn-primary">Edit Keterangan Lulus</a>
+          <a href="panel_admin/edit_ket" class="btn btn-success">Edit Keterangan Lulus</a>
+          <a href="panel_admin/edit_ket2" class="btn btn-danger">Edit Keterangan Tidak Lulus</a>
           <div class="col-md-3" style="float:right;margin-right:25px;">
             <div class="input-group">
               <div class="input-group-addon"><i class="icon-calendar22"></i></div>
@@ -54,6 +55,7 @@
               <?php
               $no = 1;
               foreach ($v_siswa->result() as $baris) { ?>
+              <input type="text" name="email" id="email" value="<?=$baris->email?>">
                 <tr>
                   <td><?php echo $no++; ?></td>
                   <td><?php echo $baris->no_pendaftaran; ?></td>

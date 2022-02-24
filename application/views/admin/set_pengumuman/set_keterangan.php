@@ -16,7 +16,7 @@
             <div class="panel-body">
 
               <fieldset class="content-group">
-                <legend class="text-bold"> Edit Keterangan Lulus</legend>
+                <legend class="text-bold"> <?php echo $judul_web; ?></legend>
                 <?php
                 echo $this->session->flashdata('msg');
                 ?>
