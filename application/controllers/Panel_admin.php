@@ -644,38 +644,6 @@ class Panel_admin extends CI_Controller
 		}
 	}
 
-	public function register(){
-		//pengaturan email
-		$this->load->library('email');//panggil library email codeigniter
-		$config = array(
-			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_port' => 465,
-			'smtp_user' => 'farhanarchman@gmail.com',//alamat email gmail
-			'smtp_pass' => 'Kt5pH5BFTcmc115096',//password email 
-			'mailtype' => 'html',
-			'charset' => 'iso-8859-1',
-			'wordwrap' => TRUE
-		);
-		$message = "Hello World, this is test email by codeigniter";//ini adalah isi/body email
-		$email = 'penerima@gmail.com';//email penerima
-	
-		$this->email->initialize($config);
-		$this->email->set_newline("\r\n");
-		$this->email->from($config['smtp_user']);
-		$this->email->to($email);
-		$this->email->subject('Pengumuman Kelulusan');//subjek email
-		$this->email->message($message);
-		
-		//proses kirim email
-		if($this->email->send()){
-			$this->session->set_flashdata('message','Sukses kirim email');
-		}
-		else{
-			$this->session->set_flashdata('message', $this->email->print_debugger());
-		}
-	}
-	
 	public function set_pengumuman($aksi = '', $id = '')
 	{
 		$ceks = $this->session->userdata('un@sman1_belitang');
@@ -716,7 +684,7 @@ class Panel_admin extends CI_Controller
 					$this->email->from($config['smtp_user']);
 					$this->email->to($email);//email penerima
 					$this->email->subject('Pengumuman Kelulusan');//subjek email
-					$this->email->message("Lulus");
+					$this->email->message($message);
 				
 				//proses kirim email
 				if($this->email->send()){
