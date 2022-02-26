@@ -660,7 +660,7 @@ class Panel_admin extends CI_Controller
 				'smtp_host' => 'ssl://smtp.gmail.com',
 				'smtp_user' => 'farhanarchman@gmail.com',  // Email gmail
 				'smtp_pass'   => 'Kt5pH5BFTcmc115096',  // Password gmail
-				'smtp_port'   => "465",
+				'smtp_port'   => "25",
 				'smtp_timeout'=> "400",
 				'crlf'    => "\r\n",
 				'newline' => "\r\n",
