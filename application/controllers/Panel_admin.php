@@ -657,7 +657,7 @@ class Panel_admin extends CI_Controller
 				'mailtype'  => 'html',
 				'charset'   => 'utf-8',
 				'protocol'  => 'smtp',
-				'smtp_host' => 'ssl://smtp.gmail.com',
+				'smtp_host' => 'smtp.gmail.com',
 				'smtp_user' => 'farhanarchman@gmail.com',  // Email gmail
 				'smtp_pass'   => 'Kt5pH5BFTcmc115096',  // Password gmail
 				'smtp_port'   => "25",
