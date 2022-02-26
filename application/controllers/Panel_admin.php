@@ -658,8 +658,8 @@ class Panel_admin extends CI_Controller
 				'charset'   => 'utf-8',
 				'protocol'  => 'smtp',
 				'smtp_host' => 'ssl://smtp.googlemail.com',
-				'smtp_user' => 'farhanarchman@gmail.com',  // Email gmail
-				'smtp_pass'   => 'Kt5pH5BFTcmc115096',  // Password gmail
+				'smtp_user' => 'akundummysaya01@gmail.com',  // Email gmail
+				'smtp_pass'   => 'Passwordnyadummyjuga',  // Password gmail
 				'smtp_port'   => 465,
 				'smtp_timeout'=> 30,
 				'newline' => "\r\n"
