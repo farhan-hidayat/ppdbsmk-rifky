@@ -76,9 +76,12 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root', //u663753320_ppdb
-	'password' => '', //Q^5=hhB>oo
-	'database' => 'ppdb', //u663753320_ppdb
+	'username' => 'u663753320_ppdb', //u663753320_ppdb
+	'password' => 'Q^5=hhB>oo', //Q^5=hhB>oo
+	'database' => 'u663753320_ppdb', //u663753320_ppdb
+	// 'username' => 'root',
+	// 'password' => '',
+	// 'database' => 'ppdb',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
