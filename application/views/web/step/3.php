@@ -168,6 +168,15 @@
             </div>
         </div>
 
+        <div class="form-group" >
+            <label class="col-sm-3 control-label" style="text-align:right; margin-top:6px">e-mail <span class="text-danger">*</span></label>
+            <div class="col-sm-9 prepend-icon" style="margin-top:3px;">
+              <input type="email" name="email" class="form-control bg-blue class" placeholder="email" data-parsley-group="block2" data-parsley-errors-container='div[id="error-email"]' required>
+              <i class="fa fa-envelope" style="margin-left:15px;"></i>
+              <div id="error-email" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
+            </div>
+        </div>
+
       </div>
     </div>
 

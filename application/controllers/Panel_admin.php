@@ -661,7 +661,7 @@ class Panel_admin extends CI_Controller
 				'smtp_user' => 'akundummysaya01@gmail.com',  // Email gmail
 				'smtp_pass'   => 'Passwordnyadummyjuga',  // Password gmail
 				'smtp_port'   => 465,
-				'smtp_timeout'=> 30,
+				'smtp_timeout'=> 5,
 				'newline' => "\r\n"
 			);
 			if ($aksi == 'lulus') {
@@ -686,7 +686,16 @@ class Panel_admin extends CI_Controller
 				
 				//proses kirim email
 				if($this->email->send()){
-					$this->session->set_flashdata('msg','Sukses kirim email');
+					$this->session->set_flashdata(
+						'msg',
+						'
+								<div class="alert alert-success alert-dismissible" role="alert">
+									 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+									 </button>
+									 <strong>Sukses!</strong> Berhasil Mengirim Email.
+								</div>'
+					);
 				}
 				else{
 					$this->session->set_flashdata('msg', $this->email->print_debugger());
@@ -703,24 +712,32 @@ class Panel_admin extends CI_Controller
 				);
 				$this->db->update('tbl_berkas', $data1, array('siswa' => "$id"));
 
-				$em = $this->db->get_where('tbl_user', "username='$ceks'");
-				foreach ($em as $key ) {
-					$isi2 = $this->db->get_where('tbl_pengumuman', "id_pengumuman='2'")->row();
-					$message2 = $isi2->ket_pengumuman;//ini adalah isi/body email
-					$this->email->initialize($config);
-					$this->email->set_newline("\r\n");
-					$this->email->from($config['smtp_user']);
-					$this->email->to($key->email);
-					$this->email->subject('Pengumuman Kelulusan');//subjek email
-					$this->email->message($message2);
-				}
+				$em = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
+				$email = $em->email; 
+				$isi2 = $this->db->get_where('tbl_pengumuman', "id_pengumuman='2'")->row();
+				$message2 = $isi2->ket_pengumuman;//ini adalah isi/body email
+				$this->email->initialize($config);
+				$this->email->from($config['smtp_user']);
+				$this->email->to($email);//email penerima
+				$this->email->subject('Pengumuman Kelulusan');//subjek email
+				$this->email->message($message2);
+				
 				
 				//proses kirim email
 				if($this->email->send()){
-					$this->session->set_flashdata('message','Sukses kirim email');
+					$this->session->set_flashdata(
+						'msg',
+						'
+								<div class="alert alert-success alert-dismissible" role="alert">
+									 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+									 </button>
+									 <strong>Sukses!</strong> Berhasil Mengirim Email.
+								</div>'
+					);
 				}
 				else{
-					$this->session->set_flashdata('message', $this->email->print_debugger());
+					$this->session->set_flashdata('msg', $this->email->print_debugger());
 				}
 		
 				redirect('panel_admin/set_pengumuman');

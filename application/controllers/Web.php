@@ -84,6 +84,7 @@ class Web extends CI_Controller
 			$status_keluarga	= $this->input->post('status_keluarga');
 			$alamat_siswa			= $this->input->post('alamat_siswa');
 			$no_hp_siswa			= $this->input->post('no_hp_siswa');
+			$email			= $this->input->post('email');
 			$nama_ayah				= $this->input->post('nama_ayah');
 			$pdd_ayah					= $this->input->post('pdd_ayah');
 			$pekerjaan_ayah		= $this->input->post('pekerjaan_ayah');
@@ -136,6 +137,7 @@ class Web extends CI_Controller
 				'status_keluarga'		=> $status_keluarga,
 				'alamat_siswa'			=> $alamat_siswa,
 				'no_hp_siswa'				=> $no_hp_siswa,
+				'email'				=> $email,
 				'nama_ayah'				  => $nama_ayah,
 				'pdd_ayah'				  => $pdd_ayah,
 				'pekerjaan_ayah'		=> $pekerjaan_ayah,

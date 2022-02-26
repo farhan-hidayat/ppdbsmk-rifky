@@ -55,7 +55,6 @@
               <?php
               $no = 1;
               foreach ($v_siswa->result() as $baris) { ?>
-              <input type="text" name="email" id="email" value="<?=$baris->email?>">
                 <tr>
                   <td><?php echo $no++; ?></td>
                   <td><?php echo $baris->no_pendaftaran; ?></td>
