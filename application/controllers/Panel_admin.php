@@ -657,14 +657,12 @@ class Panel_admin extends CI_Controller
 				'mailtype'  => 'html',
 				'charset'   => 'utf-8',
 				'protocol'  => 'smtp',
-				'smtp_host' => 'smtp.gmail.com',
+				'smtp_host' => 'ssl://smtp.googlemail.com',
 				'smtp_user' => 'farhanarchman@gmail.com',  // Email gmail
 				'smtp_pass'   => 'Kt5pH5BFTcmc115096',  // Password gmail
-				'smtp_port'   => "25",
-				'smtp_timeout'=> "400",
-				'crlf'    => "\r\n",
-				'newline' => "\r\n",
-				'wordwrap' => TRUE
+				'smtp_port'   => 465,
+				'smtp_timeout'=> 30,
+				'newline' => "\r\n"
 			);
 			if ($aksi == 'lulus') {
 				$data = array(
