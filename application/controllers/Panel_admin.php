@@ -637,10 +637,33 @@ class Panel_admin extends CI_Controller
 			}
 			$this->db->like('tgl_siswa', "$thn", 'after');
 			$this->db->order_by('id_siswa', 'DESC');
-			$data['v_siswa']  		= $this->db->get('tbl_siswa');
+			$data['v_siswa']  		= $this->db->query("SELECT * FROM tbl_siswa,tbl_jurusan, tbl_berkas WHERE jurusan=id_jurusan AND siswa=no_pendaftaran order by id_siswa desc");
 			$data['v_thn']				= $thn;
 
 			$this->load->view('admin/export', $data);
+		}
+	}
+
+	public function export1($aksi = '', $id = '')
+	{
+		$ceks = $this->session->userdata('un@sman1_belitang');
+		if (!isset($ceks)) {
+			redirect('panel_admin/log_in');
+		} else {
+			$data['user']  			  = $this->db->get_where('tbl_user', "username='$ceks'");
+			$data['judul_web'] 		= "EXPORT KE EXEL HASIL FORMULIR PENDAFTARAN SISWA (BIODATA SISWA, NILAI RAPOR, NIALI USBN, NILAI UNBK)";
+
+			if ($aksi == 'thn') {
+				$thn = $id;
+			} else {
+				$thn = date('Y');
+			}
+			$this->db->like('tgl_siswa', "$thn", 'after');
+			$this->db->order_by('id_siswa', 'DESC');
+			$data['v_siswa']  		= $this->db->query("SELECT * FROM tbl_siswa,tbl_jurusan, tbl_berkas WHERE jurusan=id_jurusan AND siswa=no_pendaftaran AND status_pendaftaran='lulus' order by nama_jurusan desc");
+			$data['v_thn']				= $thn;
+
+			$this->load->view('admin/export1', $data);
 		}
 	}
 

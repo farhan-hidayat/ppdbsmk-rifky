@@ -169,7 +169,10 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 								<?php } ?>
 								<li class="<?php if ($menu == 'panel_admin' and $sub_menu == 'export') {
 												echo 'active';
-											} ?>"><a href="panel_admin/export"><i class="icon-file-excel"></i> <span>Export Formulir</span></a></li>
+											} ?>"><a href="panel_admin/export"><i class="icon-file-excel"></i> <span>Export Data Pendaftar</span></a></li>
+								<li class="<?php if ($menu == 'panel_admin' and $sub_menu == 'export1') {
+												echo 'active';
+											} ?>"><a href="panel_admin/export1"><i class="icon-file-excel"></i> <span>Export Data Pendaftar Lulus</span></a></li>
 								<?php if ($level == "admin" || $level == "panitia") { ?>
 									<li class="<?php if ($menu == 'panel_admin' and $sub_menu == 'set_pengumuman') {
 													echo 'active';
