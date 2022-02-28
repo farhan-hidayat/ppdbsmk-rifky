@@ -95,11 +95,6 @@ class Web extends CI_Controller
 			$pekerjaan_ibu		= $this->input->post('pekerjaan_ibu');
 			$penghasilan_ibu	= $this->input->post('penghasilan_ibu');
 			$no_hp_ibu				= $this->input->post('no_hp_ibu');
-			$nama_wali				= $this->input->post('nama_wali');
-			$pdd_wali					= $this->input->post('pdd_wali');
-			$pekerjaan_wali		= $this->input->post('pekerjaan_wali');
-			$penghasilan_wali	= $this->input->post('penghasilan_wali');
-			$no_hp_wali				= $this->input->post('no_hp_wali');
 			$npsn							= $this->input->post('npsn');
 			$nama_sekolah			= $this->input->post('nama_sekolah');
 			$status_sekolah		= $this->input->post('status_sekolah');
@@ -148,11 +143,6 @@ class Web extends CI_Controller
 				'pekerjaan_ibu'			=> $pekerjaan_ibu,
 				'penghasilan_ibu'		=> $penghasilan_ibu,
 				'no_hp_ibu'				  => $no_hp_ibu,
-				'nama_wali'				  => $nama_wali,
-				'pdd_wali'				  => $pdd_wali,
-				'pekerjaan_wali'		=> $pekerjaan_wali,
-				'penghasilan_wali'	=> $penghasilan_wali,
-				'no_hp_wali'				=> $no_hp_wali,
 				'npsn_sekolah'  	  => $npsn,
 				'nama_sekolah'			=> $nama_sekolah,
 				'status_sekolah'		=> $status_sekolah,
