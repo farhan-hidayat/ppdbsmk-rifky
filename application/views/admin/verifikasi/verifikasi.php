@@ -70,11 +70,11 @@
                     <?php } ?>
                   </td>
                   <td align="center">
-                    <a href="panel_admin/verifikasi_peserta/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-default btn-xs" title="Cetak Verifikasi" target="_blank"><i class="icon-folder"></i></a>
+                    <a href="panel_admin/verifikasi_peserta/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-default btn-xs" title="Cek Berkas" target="_blank"><i class="icon-folder"></i></a>
                     <?php if ($baris->status_verifikasi == 0) { ?>
-                      <a href="panel_admin/verifikasi/cek/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-info btn-xs" title="Verifikasi" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-checkmark4"></i></a>
+                      <a href="panel_admin/verifikasi/verif/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-info btn-xs" title="Verifikasi" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-checkmark4"></i></a>
                     <?php } else { ?>
-                      <a href="panel_admin/verifikasi/cek/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-danger btn-xs" title="Batal Verifikasi" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-cross3"></i></a>
+                      <a href="panel_admin/verifikasi/batal/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-danger btn-xs" title="Batal Verifikasi" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-cross3"></i></a>
                     <?php } ?>
                   </td>
                 </tr>

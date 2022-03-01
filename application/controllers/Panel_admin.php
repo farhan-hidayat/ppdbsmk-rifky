@@ -492,19 +492,14 @@ class Panel_admin extends CI_Controller
 				'newline' => "\r\n"
 			);
 
-			if ($aksi == 'cek') {
-				$cek_status = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
-				if ($cek_status->status_verifikasi == 1) {
-					$sv = 0;
-				} else {
-					$sv = 1;
-				}
+			if ($aksi == 'verif') {
 				$data = array(
-					'status_verifikasi'	=> $sv
+					'status_verifikasi'	=> 1
 				);
 				$this->db->update('tbl_siswa', $data, array('no_pendaftaran' => "$id"));
 				
 				$em = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
+				$berkas= $this->db->get_where('tbl_berkas', "siswa='$ceks'")->row();
 				$email = $em->email; 
 					$isi = $this->db->get_where('tbl_verifikasi', "id_verifikasi='1'")->row();
 					$message = $isi->isi;//ini adalah isi/body email
@@ -512,7 +507,7 @@ class Panel_admin extends CI_Controller
 					$this->email->from($config['smtp_user']);
 					$this->email->to($email);//email penerima
 					$this->email->subject('Pengumuman Kelulusan');//subjek email
-					$this->email->message($message);
+					$this->email->message($message. $berkas->tgl. 'Pukul'. $berkas->jam);
 				
 				//proses kirim email
 				if($this->email->send()){
@@ -531,6 +526,13 @@ class Panel_admin extends CI_Controller
 					$this->session->set_flashdata('msg', $this->email->print_debugger());
 				}
 
+				redirect('panel_admin/verifikasi');
+			} elseif ($aksi == 'batal') {
+				$data = array(
+					'status_verifikasi'	=> null
+				);
+				$this->db->update('tbl_siswa', $data, array('no_pendaftaran' => "$id"));
+				
 				redirect('panel_admin/verifikasi');
 			} elseif ($aksi == 'thn') {
 				$thn = $id;
@@ -776,7 +778,6 @@ class Panel_admin extends CI_Controller
 				$this->db->update('tbl_berkas', $data1, array('siswa' => "$id"));
 
 				$em = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
-				$berkas= $this->db->get_where('tbl_berkas', "siswa='$ceks'")->row();
 				$email = $em->email; 
 					$isi = $this->db->get_where('tbl_pengumuman', "id_pengumuman='1'")->row();
 					$message = $isi->ket_pengumuman;//ini adalah isi/body email
@@ -784,7 +785,7 @@ class Panel_admin extends CI_Controller
 					$this->email->from($config['smtp_user']);
 					$this->email->to($email);//email penerima
 					$this->email->subject('Pengumuman Kelulusan');//subjek email
-					$this->email->message($message, $berkas->tgl, 'Pukul', $berkas->jam);
+					$this->email->message($message);
 				
 				//proses kirim email
 				if($this->email->send()){
