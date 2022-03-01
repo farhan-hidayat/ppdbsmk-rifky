@@ -480,6 +480,18 @@ class Panel_admin extends CI_Controller
 			$data['user']  			  = $this->db->get_where('tbl_user', "username='$ceks'");
 			$data['judul_web'] 		= "Verifikasi";
 
+			$config = array(
+				'mailtype'  => 'html',
+				'charset'   => 'utf-8',
+				'protocol'  => 'smtp',
+				'smtp_host' => 'ssl://smtp.googlemail.com',
+				'smtp_user' => 'akundummysaya01@gmail.com',  // Email gmail
+				'smtp_pass'   => 'Passwordnyadummyjuga',  // Password gmail
+				'smtp_port'   => 465,
+				'smtp_timeout'=> 5,
+				'newline' => "\r\n"
+			);
+
 			if ($aksi == 'cek') {
 				$cek_status = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
 				if ($cek_status->status_verifikasi == 1) {
@@ -491,6 +503,34 @@ class Panel_admin extends CI_Controller
 					'status_verifikasi'	=> $sv
 				);
 				$this->db->update('tbl_siswa', $data, array('no_pendaftaran' => "$id"));
+				
+				$em = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
+				$email = $em->email; 
+					$isi = $this->db->get_where('tbl_verifikasi', "id_verifikasi='1'")->row();
+					$message = $isi->isi;//ini adalah isi/body email
+					$this->email->initialize($config);
+					$this->email->from($config['smtp_user']);
+					$this->email->to($email);//email penerima
+					$this->email->subject('Pengumuman Kelulusan');//subjek email
+					$this->email->message($message);
+				
+				//proses kirim email
+				if($this->email->send()){
+					$this->session->set_flashdata(
+						'msg',
+						'
+								<div class="alert alert-success alert-dismissible" role="alert">
+									 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+									 </button>
+									 <strong>Sukses!</strong> Berhasil Mengirim Email.
+								</div>'
+					);
+				}
+				else{
+					$this->session->set_flashdata('msg', $this->email->print_debugger());
+				}
+
 				redirect('panel_admin/verifikasi');
 			} elseif ($aksi == 'thn') {
 				$thn = $id;
@@ -537,7 +577,43 @@ class Panel_admin extends CI_Controller
 								 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
 								 </button>
-								 <strong>Sukses!</strong> Meteri & Jadwal Ujian berhasil diperbarui.
+								 <strong>Sukses!</strong> Jadwal Wawancara Berhasil diperbarui.
+							</div>'
+				);
+				redirect('panel_admin/verifikasi');
+			}
+		}
+	}
+
+	public function edit_materi1($aksi = '', $id = '')
+	{
+		$ceks = $this->session->userdata('un@sman1_belitang');
+		if (!isset($ceks)) {
+			redirect('panel_admin/log_in');
+		} else {
+			$data['user']  			  = $this->db->get_where('tbl_user', "username='$ceks'");
+			$data['judul_web'] 		= "Edit Materi & Jadwal Ujian";
+
+			$data['v_materi']  		= $this->db->get_where('tbl_verifikasi', "id_verifikasi='2'")->row();
+
+			$this->load->view('admin/header', $data);
+			$this->load->view('admin/verifikasi/verifikasi_edit_materi&jadwal', $data);
+			$this->load->view('admin/footer');
+
+			if (isset($_POST['btnupdate'])) {
+				$data = array(
+					'isi'	=> $this->input->post('isi')
+				);
+				$this->db->update('tbl_verifikasi', $data, array('id_verifikasi' => "2"));
+
+				$this->session->set_flashdata(
+					'msg',
+					'
+							<div class="alert alert-success alert-dismissible" role="alert">
+								 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+								 </button>
+								 <strong>Sukses!</strong> Jadwal Wawancara Berhasil diperbarui.
 							</div>'
 				);
 				redirect('panel_admin/verifikasi');
@@ -567,7 +643,9 @@ class Panel_admin extends CI_Controller
 				's_kk'		=> $this->input->post('s_kk'),
 				's_fk'		=> $this->input->post('s_fk'),
 				's_skl'		=> $this->input->post('s_skl'),
-				's_ijazah'	=> $this->input->post('s_ijazah')
+				's_ijazah'	=> $this->input->post('s_ijazah'),
+				'tgl'		=> $this->input->post('tgl'),
+				'jam'		=> $this->input->post('jam')
 			);
 
 			$this->db->update('tbl_berkas', $file, array('siswa' => $id));
@@ -698,6 +776,7 @@ class Panel_admin extends CI_Controller
 				$this->db->update('tbl_berkas', $data1, array('siswa' => "$id"));
 
 				$em = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
+				$berkas= $this->db->get_where('tbl_berkas', "siswa='$ceks'")->row();
 				$email = $em->email; 
 					$isi = $this->db->get_where('tbl_pengumuman', "id_pengumuman='1'")->row();
 					$message = $isi->ket_pengumuman;//ini adalah isi/body email
@@ -705,7 +784,7 @@ class Panel_admin extends CI_Controller
 					$this->email->from($config['smtp_user']);
 					$this->email->to($email);//email penerima
 					$this->email->subject('Pengumuman Kelulusan');//subjek email
-					$this->email->message($message);
+					$this->email->message($message, $berkas->tgl, 'Pukul', $berkas->jam);
 				
 				//proses kirim email
 				if($this->email->send()){

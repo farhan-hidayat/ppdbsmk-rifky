@@ -11,6 +11,7 @@ class Panel_siswa extends CI_Controller
 			redirect('');
 		} else {
 			$data['user']   	 = $this->db->get_where('tbl_siswa', "no_pendaftaran='$ceks'");
+			$data['berkas']			= $this->db->get_where('tbl_berkas', "siswa='$ceks'")->row();
 			$data['judul_web'] = "Dashboard";
 
 			$this->load->view('siswa/header', $data);

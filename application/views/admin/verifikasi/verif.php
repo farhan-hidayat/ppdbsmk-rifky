@@ -166,6 +166,9 @@ $user = $siswa->row(); ?>
                                                             } ?> value="Tidak Sesuai">Tidak Sesuai</option>
                                                 </select>
                                             </th>
+                                            <th>
+                                                <center><h3><b>Jadwal Wawancara</b></h3></center>
+                                            </th>
                                             <!-- <th>Pernyataan</th> -->
                                         </tr>
                                         <tr>
@@ -190,6 +193,12 @@ $user = $siswa->row(); ?>
                                                 <?php } else { ?>
                                                     <label class="label label-danger">Belum Upload</label>
                                                 <?php } ?>
+                                            </td>
+                                            <td>
+                                                <div >
+                                                    <input type="date" name="tgl" class="form-control" value="<?php echo $berkas->tgl; ?>">
+                                                    <input type="time" name="jam" class="form-control" value="<?php echo $berkas->jam; ?>">
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>

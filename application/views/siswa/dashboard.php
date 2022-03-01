@@ -115,19 +115,24 @@ $tgl = date('m-Y');
             <div class="col-lg-3">
               <!-- Current server load -->
               <center>
-                <a href="#">
+                <!-- <a href="#"> -->
                   <div class="panel bg-green">
                     <div class="panel-body">
                       <div class="heading-elements">
                         <span class="heading-text"></span>
                       </div>
                       <h1 class="no-margin">
-                        <i class="icon-file" style="font-size:200px;"></i>
+                        <i class="glyphicon glyphicon-bullhorn" style="font-size:100px;"></i>
                       </h1>
                       Jadwal Wawancara
+                      <h1>
+                        <b><?php echo date('d F Y', strtotime($berkas->tgl)) ?></b>
+                        <br>
+                        <b>Pukul <?php echo date('H:i',strtotime($berkas->jam)) ?> WIB</b>
+                      </h1>
                     </div>
                   </div>
-                </a>
+                <!-- </a> -->
               </center>
               <!-- /current server load -->
             </div>

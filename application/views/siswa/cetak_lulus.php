@@ -110,11 +110,6 @@
         <td><?php echo ucwords($user->nama_ibu); ?></td>
       </tr>
       <tr>
-        <td style="padding-left:55px;">WALI</td>
-        <td>:</td>
-        <td><?php echo ucwords($user->nama_wali); ?></td>
-      </tr>
-      <tr>
         <td>NO. HANDPHONE (HP)</td>
         <td>:</td>
         <td><?php echo $user->no_hp_siswa; ?></td>
@@ -147,8 +142,6 @@
       NIP. 19
     </div>
     <br><br><br><br><br><br>
-
-    <?php echo $v_ket->ket_pengumuman; ?>
 
   </body>
 </html>

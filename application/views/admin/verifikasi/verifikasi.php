@@ -19,7 +19,8 @@
           </div>
 
           <br>
-          <a href="panel_admin/edit_materi" class="btn btn-primary">Edit Materi & Jadwal Ujian</a>
+          <a href="panel_admin/edit_materi" class="btn btn-success">Edit Pengumuman Vrifikasi Lengkap</a>
+          <!-- <a href="panel_admin/edit_materi1" class="btn btn-danger">Edit Pengumuman Vrifikasi Tidak Lengkap</a> -->
           <div class="col-md-3" style="float:right;margin-right:25px;">
             <div class="input-group">
               <div class="input-group-addon"><i class="icon-calendar22"></i></div>
