@@ -507,7 +507,7 @@ class Panel_admin extends CI_Controller
 					$this->email->from($config['smtp_user']);
 					$this->email->to($email);//email penerima
 					$this->email->subject('Pengumuman Berkas');//subjek email
-					$this->email->message($message, $berkas->tgl.'Pukul'.$berkas->jam);
+					$this->email->message($message && $berkas->tgl.'Pukul'.$berkas->jam);
 				
 				//proses kirim email
 				if($this->email->send()){

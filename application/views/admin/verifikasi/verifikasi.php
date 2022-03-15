@@ -66,7 +66,7 @@
                     <?php if ($baris->status_verifikasi == 1) { ?>
                       <label class="label label-success">Terverifikasi</label>
                     <?php } elseif ($baris->status_verifikasi == 2) { ?>
-                      <label class="label label-success">Tidak Lengkap</label>
+                      <label class="label label-danger">Tidak Lengkap</label>
                     <?php } else { ?>
                       <label class="label label-warning">Belum diVerifikasi</label>
                     <?php } ?>
