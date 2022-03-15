@@ -507,7 +507,7 @@ class Panel_admin extends CI_Controller
 					$this->email->from($config['smtp_user']);
 					$this->email->to($email);//email penerima
 					$this->email->subject('Pengumuman Berkas');//subjek email
-					$this->email->message($message.$berkas->tgl.' Pukul '.$berkas->jam);
+					$this->email->message($message. $berkas->tgl.' Pukul '.$berkas->jam);
 				
 				//proses kirim email
 				if($this->email->send()){
@@ -526,7 +526,9 @@ class Panel_admin extends CI_Controller
 					$this->session->set_flashdata('msg2', $this->email->print_debugger());
 				}
 
-			}if ($aksi == 'tdk_lengkap') {
+				redirect('panel_admin/verifikasi');
+
+			} elseif ($aksi == 'tdk_lengkap') {
 					$data = array(
 						'status_verifikasi'	=> 2
 					);
@@ -558,8 +560,8 @@ class Panel_admin extends CI_Controller
 					else{
 						$this->session->set_flashdata('msg2', $this->email->print_debugger());
 					}
-
-				redirect('panel_admin/verifikasi');
+	
+					redirect('panel_admin/verifikasi');
 			} elseif ($aksi == 'batal') {
 				$data = array(
 					'status_verifikasi'	=> null
