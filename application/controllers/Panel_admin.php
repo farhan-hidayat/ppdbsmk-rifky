@@ -499,7 +499,7 @@ class Panel_admin extends CI_Controller
 				$this->db->update('tbl_siswa', $data, array('no_pendaftaran' => "$id"));
 				
 				$em = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
-				$berkas= $this->db->get_where('tbl_berkas', "siswa='$ceks'")->row();
+				$berkas= $this->db->get_where('tbl_berkas', "siswa='$id'")->row();
 				$email = $em->email; 
 					$isi = $this->db->get_where('tbl_verifikasi', "id_verifikasi='1'")->row();
 					$message = $isi->isi;//ini adalah isi/body email
@@ -507,7 +507,7 @@ class Panel_admin extends CI_Controller
 					$this->email->from($config['smtp_user']);
 					$this->email->to($email);//email penerima
 					$this->email->subject('Pengumuman Berkas');//subjek email
-					$this->email->message($message);
+					$this->email->message($message.$berkas->tgl.' Pukul '.$berkas->jam);
 				
 				//proses kirim email
 				if($this->email->send()){
@@ -533,7 +533,6 @@ class Panel_admin extends CI_Controller
 					$this->db->update('tbl_siswa', $data, array('no_pendaftaran' => "$id"));
 					
 					$em = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();
-					$berkas= $this->db->get_where('tbl_berkas', "siswa='$ceks'")->row();
 					$email = $em->email; 
 						$isi = $this->db->get_where('tbl_verifikasi', "id_verifikasi='2'")->row();
 						$message = $isi->isi;//ini adalah isi/body email
