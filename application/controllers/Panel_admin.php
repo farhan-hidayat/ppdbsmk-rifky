@@ -502,10 +502,7 @@ class Panel_admin extends CI_Controller
 				$berkas= $this->db->get_where('tbl_berkas', "siswa='$ceks'")->row();
 				$email = $em->email; 
 					$isi = $this->db->get_where('tbl_verifikasi', "id_verifikasi='1'")->row();
-					$m0 = $isi->isi;
-					$m1 = $berkas->tgl;
-					$m2 = $berkas->jam;
-					$message = $m0. $m1."Pukul".$m2;//ini adalah isi/body email
+					$message = $isi->isi;//ini adalah isi/body email
 					$this->email->initialize($config);
 					$this->email->from($config['smtp_user']);
 					$this->email->to($email);//email penerima
