@@ -20,7 +20,7 @@
 
           <br>
           <a href="panel_admin/edit_materi" class="btn btn-success">Edit Pengumuman Vrifikasi Lengkap</a>
-          <!-- <a href="panel_admin/edit_materi1" class="btn btn-danger">Edit Pengumuman Vrifikasi Tidak Lengkap</a> -->
+          <a href="panel_admin/edit_materi1" class="btn btn-danger">Edit Pengumuman Vrifikasi Tidak Lengkap</a>
           <div class="col-md-3" style="float:right;margin-right:25px;">
             <div class="input-group">
               <div class="input-group-addon"><i class="icon-calendar22"></i></div>
@@ -65,6 +65,8 @@
                   <td align="center">
                     <?php if ($baris->status_verifikasi == 1) { ?>
                       <label class="label label-success">Terverifikasi</label>
+                    <?php } elseif ($baris->status_verifikasi == 2) { ?>
+                      <label class="label label-success">Tidak Lengkap</label>
                     <?php } else { ?>
                       <label class="label label-warning">Belum diVerifikasi</label>
                     <?php } ?>
@@ -73,6 +75,7 @@
                     <a href="panel_admin/verifikasi_peserta/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-default btn-xs" title="Cek Berkas" target="_blank"><i class="icon-folder"></i></a>
                     <?php if ($baris->status_verifikasi == 0) { ?>
                       <a href="panel_admin/verifikasi/verif/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-info btn-xs" title="Verifikasi" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-checkmark4"></i></a>
+                      <a href="panel_admin/verifikasi/tdk_lengkap/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-warning btn-xs" title="Tidak Lengkap" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-sync"></i></a>
                     <?php } else { ?>
                       <a href="panel_admin/verifikasi/batal/<?php echo $baris->no_pendaftaran; ?>" class="btn btn-danger btn-xs" title="Batal Verifikasi" onclick="return confirm('Apakah Anda yakin?')"><i class="icon-cross3"></i></a>
                     <?php } ?>
