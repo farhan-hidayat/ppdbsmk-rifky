@@ -10,7 +10,11 @@
         <select class="form-control bg-blue class" data-placeholder="Pilih Jurusan" name="jurusan" data-parsley-group="block1" data-parsley-errors-container='div[id="error-jurusan"]' required>
           <option value="">Pilih Jurusan</option>
           <?php foreach ($v_jurusan as $baris) : ?>
-            <option value="<?php echo $baris->id_jurusan; ?>"><?php echo $baris->nama_jurusan; ?></option>
+            <?php
+            $kuota=$this->db->query("SELECT * FROM tbl_siswa,tbl_jurusan WHERE jurusan=id_jurusan AND id_jurusan=$baris->id_jurusan");
+            $kuota_sekarang=$kuota->num_rows();
+            $kuota_max=$kuota->row()->kuota; ?>
+            <option value="<?php echo $baris->id_jurusan; ?>" <?=$kuota_sekarang >= $kuota_max ? 'disabled' : ''?>><?php echo $baris->nama_jurusan; ?></option>
           <?php endforeach; ?>
         </select>
         <div id="error-jurusan" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
