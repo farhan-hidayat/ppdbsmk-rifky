@@ -11,9 +11,9 @@
           <option value="">Pilih Jurusan</option>
           <?php foreach ($v_jurusan as $baris) : ?>
             <?php
-            $kuota=$this->db->query("SELECT * FROM tbl_siswa,tbl_jurusan WHERE jurusan=id_jurusan AND id_jurusan=$baris->id_jurusan");
-            $kuota_sekarang=$kuota->num_rows();
-            $kuota_max=$kuota->row()->kuota; ?>
+            $kuota=$this->db->query("SELECT tbl_jurusan.*, COUNT(id_siswa) as jml FROM tbl_siswa,tbl_jurusan WHERE jurusan=id_jurusan AND id_jurusan=$baris->id_jurusan");
+            $kuota_sekarang=$kuota->row()->jml;
+            $kuota_max=$kuota->row()->kuota;?>
             <option value="<?php echo $baris->id_jurusan; ?>" <?=$kuota_sekarang >= $kuota_max ? 'disabled' : ''?>><?php echo $baris->nama_jurusan; ?></option>
           <?php endforeach; ?>
         </select>
