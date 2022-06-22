@@ -1,19 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 class Panel_admin extends CI_Controller
 {
-	public function __construct() { 
-		parent::__construct(); 
-		
-		require APPPATH.'libraries/phpmailer/src/Exception.php';
-		require APPPATH.'libraries/phpmailer/src/PHPMailer.php';
-		require APPPATH.'libraries/phpmailer/src/SMTP.php';
-		 
-	}
 
 	public function index()
 	{
@@ -491,9 +480,6 @@ class Panel_admin extends CI_Controller
 			$data['user']  			  = $this->db->get_where('tbl_user', "username='$ceks'");
 			$data['judul_web'] 		= "Verifikasi";
 
-			$response = false;
-            $mail = new PHPMailer();
-			
 			$config = array(
 				'mailtype'  => 'html',
 				'charset'   => 'utf-8',
@@ -517,48 +503,28 @@ class Panel_admin extends CI_Controller
 				$email = $em->email; 
 					$isi = $this->db->get_where('tbl_verifikasi', "id_verifikasi='1'")->row();
 					$message = $isi->isi;//ini adalah isi/body email
-					
-
-				// PHPMailer object
-				$response = false;
-				$mail = new PHPMailer();
-			  
-	   
-			   // SMTP configuration
-			   $mail->isSMTP();
-			   $mail->Host     = 'hostinger.com'; //sesuaikan sesuai nama domain hosting/server yang digunakan
-			   $mail->SMTPAuth = true;
-			   $mail->Username = 'akundummysaya01@gmail.com'; // user email
-			   $mail->Password = 'Passwordnyadummyjuga'; // password email
-			   $mail->SMTPSecure = 'ssl';
-			   $mail->Port     = 465;
-
-			   $mail->Timeout = 60; // timeout pengiriman (dalam detik)
-			   $mail->SMTPKeepAlive = true; 
-	   
-			   $mail->setFrom('akundummysaya01@gmail.com', ''); // user email
-			   $mail->addReplyTo('akundummysaya01@gmail.com', ''); //user email
-	   
-			   // Add a recipient
-			   $mail->addAddress($email); //email tujuan pengiriman email
-	   
-			   // Email subject
-			   $mail->Subject = 'Verifikasi Berkas'; //subject email
-	   
-			   // Set email format to HTML
-			   $mail->isHTML(true);
-	   
-			   // Email body content
-			   $mailContent = $message. $berkas->tgl.' Pukul '.$berkas->jam; // isi email
-			   $mail->Body = $mailContent;
-	   
-			   // Send email
-			   if(!$mail->send()){
-				   echo 'Message could not be sent.';
-				   echo 'Mailer Error: ' . $mail->ErrorInfo;
-			   }else{
-				   echo 'Message has been sent';
-			   }
+					$this->email->initialize($config);
+					$this->email->from($config['smtp_user']);
+					$this->email->to($email);//email penerima
+					$this->email->subject('Pengumuman Berkas');//subjek email
+					$this->email->message($message. $berkas->tgl.' Pukul '.$berkas->jam);
+				
+				//proses kirim email
+				if($this->email->send()){
+					$this->session->set_flashdata(
+						'msg2',
+						'
+								<div class="alert alert-success alert-dismissible" role="alert">
+									 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										 <span aria-hidden="true">&times;&nbsp; &nbsp;</span>
+									 </button>
+									 <strong>Sukses!</strong> Berhasil Mengirim Email.
+								</div>'
+					);
+				}
+				else{
+					$this->session->set_flashdata('msg2', $this->email->print_debugger());
+				}
 
 				redirect('panel_admin/verifikasi');
 
