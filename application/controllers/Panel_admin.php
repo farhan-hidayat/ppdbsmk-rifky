@@ -485,8 +485,8 @@ class Panel_admin extends CI_Controller
 				'charset'   => 'utf-8',
 				'protocol'  => 'smtp',
 				'smtp_host' => 'ssl://smtp.googlemail.com',
-				'smtp_user' => 'farhanarchman@demoprojectku.xyz',  // Email gmail
-				'smtp_pass'   => 'lmrwytusrwzcxhcl',  // Password gmail
+				'smtp_user' => 'abc@abc.com',  // Email gmail
+				'smtp_pass'   => '123',  // Password gmail
 				'smtp_port'   => 465,
 				'smtp_timeout'=> 5,
 				'newline' => "\r\n"
@@ -796,8 +796,8 @@ class Panel_admin extends CI_Controller
 				'charset'   => 'utf-8',
 				'protocol'  => 'smtp',
 				'smtp_host' => 'ssl://smtp.googlemail.com',
-				'smtp_user' => 'farhanarchman@demoprojectku.xyz',  // Email gmail
-				'smtp_pass'   => 'lmrwytusrwzcxhcl',  // Password gmail
+				'smtp_user' => 'abc@abc.com',  // Email gmail
+				'smtp_pass'   => '123',  // Password gmail
 				'smtp_port'   => 465,
 				'smtp_timeout'=> 5,
 				'newline' => "\r\n"
